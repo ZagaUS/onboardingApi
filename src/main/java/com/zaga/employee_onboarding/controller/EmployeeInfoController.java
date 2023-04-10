@@ -2,20 +2,21 @@ package com.zaga.employee_onboarding.controller;
 
 import java.io.IOException;
 
-import javax.validation.Valid;
+// import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.GetMapping;
+// import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
+// import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -35,6 +36,16 @@ public class EmployeeInfoController {
             System.out.println("EmployeeInfo: " + employeeInfo);
             EmployeeInfo details = employeeInfoService.addDetails(employeeInfo);
             return new ResponseEntity<>("Employee Details added successfully", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("ERROR: " + e, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/getEducationDetails")
+    public ResponseEntity<?> getEducationDetails() {
+        try {
+
+            return new ResponseEntity<>(employeeInfoService.getEducationDetailsDTO(), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>("ERROR: " + e, HttpStatus.INTERNAL_SERVER_ERROR);
         }

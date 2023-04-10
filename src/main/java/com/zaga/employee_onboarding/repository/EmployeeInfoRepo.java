@@ -12,7 +12,7 @@ public interface EmployeeInfoRepo extends MongoRepository<EmployeeInfo, String> 
 
    @Query(value = "{ 'employeeId' : ?0 }")
    @Update("{ $set: { 'fileName' : ?1, 'file' : ?2 } }")
-   public void updateData(String employeeId, String fileName, byte[] file);
+   public void updateData(String employeeId, String fileName, byte[] bs);
 
    @Query(value = "{'employeeId' : ?0}")
    public EmployeeInfo getEmployeeInfo(String employeeId);

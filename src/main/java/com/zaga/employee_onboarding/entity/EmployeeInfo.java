@@ -2,7 +2,9 @@ package com.zaga.employee_onboarding.entity;
 
 import java.util.List;
 
-import org.bson.types.ObjectId;
+import org.bson.types.Binary;
+
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.zaga.employee_onboarding.entity.dto.EducationDetailsDTO;
@@ -21,6 +23,7 @@ import lombok.NoArgsConstructor;
 public class EmployeeInfo {
 
     // Employee Info
+    @Id
     public String employeeId;
     public String employeeName;
     public String employeeRole;
@@ -60,7 +63,7 @@ public class EmployeeInfo {
 
     // Employee Documents
     public String fileName;
-    public byte[] file;
+    // public byte[] file;
 
     // DayOff
     public String allocatedLeave;
