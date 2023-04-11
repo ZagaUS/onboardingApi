@@ -20,5 +20,8 @@ public interface EmployeeInfoService {
     public String updateEmpDocuments(MultipartFile file) throws IOException;
 
     public List<JobHistoryDTO> getJobHistoryDTO();
+ 
+    public void updateJobHistoryDTO(String employeeId, List<JobHistoryDTO> jobhistoryDTO);
 
+    
 }

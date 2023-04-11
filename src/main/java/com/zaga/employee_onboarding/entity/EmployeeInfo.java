@@ -63,7 +63,7 @@ public class EmployeeInfo {
 
     // Employee Documents
     public String fileName;
-    // public byte[] file;
+     public byte[] file;
 
     // DayOff
     public String allocatedLeave;
@@ -75,5 +75,4 @@ public class EmployeeInfo {
     public String certificationName;
     public String level;
     public String validity;
-
 }
