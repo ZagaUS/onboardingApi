@@ -64,6 +64,30 @@ public class EmployeeInfoServiceimpl implements EmployeeInfoService {
     }
 
     @Override
+    public void updateEducationDetails(String employeeId, List<EducationDetailsDTO> educationDetailsDTO) {
+        EmployeeInfo employeeInfo = employeeInfoRepo.findById(employeeId)
+            .orElseThrow(() -> new RuntimeException("No employee found with id " + employeeId));
+
+            List<EducationDetailsDTO> educationDetails = employeeInfo.getEducationDetails().stream()
+                .map(edDTO -> {
+                    EducationDetailsDTO ed = new EducationDetailsDTO();
+                    ed.setCollegeName(edDTO.getCollegeName());
+                    ed.setDegree(edDTO.getDegree());
+                    ed.setSpecialization(edDTO.getSpecialization());
+                    ed.setYear(edDTO.getYear());
+                    ed.setGraduate(edDTO.getGraduate());
+                    return ed;
+                }).collect(Collectors.toList());
+
+                employeeInfo.setEducationDetails(educationDetails);
+                employeeInfoRepo.save(employeeInfo);
+            
+                // employeeInfo.updateEducationDetails(educationDetails);
+                // employeeInfoRepo.save(employeeInfo);
+
+    }
+
+    @Override
     public String updateEmpDocuments(MultipartFile file) throws IOException {
         String fileName;
         byte[] fileData;

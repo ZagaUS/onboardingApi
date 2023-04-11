@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 // import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -46,6 +47,17 @@ public class EmployeeInfoController {
         try {
 
             return new ResponseEntity<>(employeeInfoService.getEducationDetailsDTO(), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("ERROR: " + e, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PutMapping("/updateEducationDetails")
+    public ResponseEntity<?> updateEducationDetails(@RequestParam(value = "employeeId", required = true) String employeeId,
+            @RequestBody EmployeeInfo employeeInfo) {
+        try {
+            employeeInfoService.updateEducationDetails(employeeId, employeeInfo.getEducationDetails());
+            return new ResponseEntity<>("Employee Details updated successfully", HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>("ERROR: " + e, HttpStatus.INTERNAL_SERVER_ERROR);
         }

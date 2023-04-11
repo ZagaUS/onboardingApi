@@ -16,5 +16,7 @@ public interface EmployeeInfoService {
     
     public List<EducationDetailsDTO> getEducationDetailsDTO();
 
+    public void updateEducationDetails(String employeeId, List<EducationDetailsDTO> educationDetailsDTO);
+
     public String updateEmpDocuments(MultipartFile file) throws IOException;
 }
