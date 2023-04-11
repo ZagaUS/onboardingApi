@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import com.zaga.employee_onboarding.entity.dto.EducationDetailsDTO;
 import com.zaga.employee_onboarding.entity.dto.JobHistoryDTO;
 // import com.zaga.employee_onboarding.entity.dto.PdfObject;
+import com.zaga.employee_onboarding.entity.dto.TrainingDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -71,9 +72,6 @@ public class EmployeeInfo {
     public String balance;
 
     // Training
-    public String courseName;
-    public String certificationName;
-    public String level;
-    public String validity;
+    public List<TrainingDTO> trainingDetails;
 
 }

@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "educationDetailsInfo")
 public class EducationDetailsDTO {
     public String collegeName;
     public String degree;

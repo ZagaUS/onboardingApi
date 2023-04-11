@@ -45,12 +45,6 @@ public class EmployeeInfoServiceimpl implements EmployeeInfoService {
 
         List<List<EducationDetailsDTO>> educationDetailsList = empInfo.stream()
                   .map(empInfos -> {
-           // List<EducationDetailsDTO> educationDetails = new ArrayList<EducationDetailsDTO>();
-                // educationDetails.setCollegeName(empInfos.getEducationDetails().stream().);
-                // educationDetails.setDegree(empInfos.getDegree());
-                // educationDetails.setSpecialization(empInfo.getSpecialization());
-                // educationDetails.setYear(empInfo.getYear());
-                // educationDetails.setGraduate(empInfo.getGraduate());
 
                 List<EducationDetailsDTO> educationDetails = empInfos.getEducationDetails().stream().map(ed -> {
                     EducationDetailsDTO edDTO = new EducationDetailsDTO();
