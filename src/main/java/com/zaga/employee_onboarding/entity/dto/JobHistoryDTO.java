@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "jobHistoryInfo")
 
 public class JobHistoryDTO {
     public String companyName;

@@ -55,15 +55,6 @@ public class EmployeeInfoController {
         }
     }
 
-    @GetMapping("/getJobHistoryDTO")
-    public ResponseEntity<?> getJobHistoryDTO() {
-        try {
-            return new ResponseEntity<>(employeeInfoService.getJobHistoryDTO(), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>("ERROR: " + e, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
     @PostMapping(value = "uploadDocuments", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<String> handleFileUpload(@RequestParam(value = "file", required = true) MultipartFile file)
             throws IOException {

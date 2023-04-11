@@ -42,15 +42,7 @@ public class EmployeeInfoServiceimpl implements EmployeeInfoService {
         }
 
         List<List<EducationDetailsDTO>> educationDetailsList = empInfo.stream()
-                .map(empInfos -> {
-                    // List<EducationDetailsDTO> educationDetails = new
-                    // ArrayList<EducationDetailsDTO>();
-                    // educationDetails.setCollegeName(empInfos.getEducationDetails().stream().);
-                    // educationDetails.setDegree(empInfos.getDegree());
-                    // educationDetails.setSpecialization(empInfo.getSpecialization());
-                    // educationDetails.setYear(empInfo.getYear());
-                    // educationDetails.setGraduate(empInfo.getGraduate());
-
+                  .map(empInfos -> {
                     List<EducationDetailsDTO> educationDetails = empInfos.getEducationDetails().stream().map(ed -> {
                         EducationDetailsDTO edDTO = new EducationDetailsDTO();
                         edDTO.setCollegeName(ed.getCollegeName());
@@ -66,6 +58,30 @@ public class EmployeeInfoServiceimpl implements EmployeeInfoService {
                 .collect(Collectors.toList());
 
         return educationDetailsList.get(0);
+    }
+
+    @Override
+    public void updateEducationDetails(String employeeId, List<EducationDetailsDTO> educationDetailsDTO) {
+        EmployeeInfo employeeInfo = employeeInfoRepo.findById(employeeId)
+            .orElseThrow(() -> new RuntimeException("No employee found with id " + employeeId));
+
+            List<EducationDetailsDTO> educationDetails = employeeInfo.getEducationDetails().stream()
+                .map(edDTO -> {
+                    EducationDetailsDTO ed = new EducationDetailsDTO();
+                    ed.setCollegeName(edDTO.getCollegeName());
+                    ed.setDegree(edDTO.getDegree());
+                    ed.setSpecialization(edDTO.getSpecialization());
+                    ed.setYear(edDTO.getYear());
+                    ed.setGraduate(edDTO.getGraduate());
+                    return ed;
+                }).collect(Collectors.toList());
+
+                employeeInfo.setEducationDetails(educationDetails);
+                employeeInfoRepo.save(employeeInfo);
+            
+                // employeeInfo.updateEducationDetails(educationDetails);
+                // employeeInfoRepo.save(employeeInfo);
+
     }
 
     @Override
