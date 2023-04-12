@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.zaga.employee_onboarding.entity.EmployeeInfo;
 import com.zaga.employee_onboarding.entity.dto.EducationDetailsDTO;
+import com.zaga.employee_onboarding.entity.dto.TrainingDTO;
 
 @Service
 public interface EmployeeInfoService {
@@ -15,6 +16,8 @@ public interface EmployeeInfoService {
     public EmployeeInfo addDetails(EmployeeInfo employeeInfo) throws IOException;
     
     public List<EducationDetailsDTO> getEducationDetailsDTO();
+
+    public List<TrainingDTO> getTrainingDetailsDTO();
 
     public void updateEducationDetails(String employeeId, List<EducationDetailsDTO> educationDetailsDTO);
 

@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.zaga.employee_onboarding.entity.EmployeeInfo;
 import com.zaga.employee_onboarding.entity.dto.EducationDetailsDTO;
+import com.zaga.employee_onboarding.entity.dto.TrainingDTO;
 import com.zaga.employee_onboarding.repository.EmployeeInfoRepo;
 import com.zaga.employee_onboarding.repository.SequenceGeneratorRepo;
 import com.zaga.employee_onboarding.service.EmployeeInfoService;
@@ -64,6 +65,49 @@ public class EmployeeInfoServiceimpl implements EmployeeInfoService {
     }
 
     @Override
+    public List<TrainingDTO> getTrainingDetailsDTO() {
+
+        List<EmployeeInfo> empInfo2 = employeeInfoRepo.findAll();
+
+        if (empInfo2.isEmpty()) {
+            throw new RuntimeException("No records found");
+        }
+
+        List<List<TrainingDTO>> trainingDetailsList = empInfo2.stream()
+                //   .map(
+                //     empInf -> {
+
+                //     List<TrainingDTO> trainingDetails = empInf.getTrainingDetails().stream().map(td -> {
+                //         TrainingDTO tdDTO = new TrainingDTO(); 
+                //         tdDTO.setCourseName(td.getCourseName());
+                //         tdDTO.setCertificationName(td.getCertificationName());
+                //         tdDTO.setLevel(td.getLevel());
+                //         tdDTO.setValidity(td.getValidity());
+                        
+                //     }).collect(Collectors.toList());    
+                //     return trainingDetails;
+                    
+                // })
+
+            .map(empInfos -> {
+                    
+                    List<TrainingDTO> trainingDetails = empInfos.getTrainingDetails().stream().map(td -> {
+                        TrainingDTO tdDTO = new TrainingDTO();
+                        tdDTO.setCourseName(td.getCourseName());
+                        tdDTO.setCertificationName(td.getCertificationName());
+                        tdDTO.setLevel(td.getLevel());
+                        tdDTO.setValidity(td.getValidity());
+                        return tdDTO;
+                    }).collect(Collectors.toList());
+                    return trainingDetails;
+            })
+
+                .collect(Collectors.toList());
+
+            return trainingDetailsList.get(0);
+    }
+
+    @Override
     public void updateEducationDetails(String employeeId, List<EducationDetailsDTO> educationDetailsDTO) {
         EmployeeInfo employeeInfo = employeeInfoRepo.findById(employeeId)
             .orElseThrow(() -> new RuntimeException("No employee found with id " + employeeId));
@@ -81,9 +125,6 @@ public class EmployeeInfoServiceimpl implements EmployeeInfoService {
 
                 employeeInfo.setEducationDetails(educationDetails);
                 employeeInfoRepo.save(employeeInfo);
-            
-                // employeeInfo.updateEducationDetails(educationDetails);
-                // employeeInfoRepo.save(employeeInfo);
 
     }
 
