@@ -3,13 +3,12 @@ package com.zaga.employee_onboarding.serviceimpl;
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.zaga.employee_onboarding.entity.EmployeeInfo;
 import com.zaga.employee_onboarding.entity.dto.EducationDetailsDTO;
+import com.zaga.employee_onboarding.entity.dto.JobHistoryDTO;
 import com.zaga.employee_onboarding.entity.dto.TrainingDTO;
 import com.zaga.employee_onboarding.repository.EmployeeInfoRepo;
 import com.zaga.employee_onboarding.repository.SequenceGeneratorRepo;
@@ -39,29 +38,27 @@ public class EmployeeInfoServiceimpl implements EmployeeInfoService {
 
         List<EmployeeInfo> empInfo = employeeInfoRepo.findAll();
 
-        
         if (empInfo.isEmpty()) {
             throw new RuntimeException("No records found");
         }
 
         List<List<EducationDetailsDTO>> educationDetailsList = empInfo.stream()
                   .map(empInfos -> {
+                    List<EducationDetailsDTO> educationDetails = empInfos.getEducationDetails().stream().map(ed -> {
+                        EducationDetailsDTO edDTO = new EducationDetailsDTO();
+                        edDTO.setCollegeName(ed.getCollegeName());
+                        edDTO.setDegree(ed.getDegree());
+                        edDTO.setSpecialization(ed.getSpecialization());
+                        edDTO.setYear(ed.getYear());
+                        edDTO.setGraduate(ed.getGraduate());
+                        return edDTO;
 
-                List<EducationDetailsDTO> educationDetails = empInfos.getEducationDetails().stream().map(ed -> {
-                    EducationDetailsDTO edDTO = new EducationDetailsDTO();
-                    edDTO.setCollegeName(ed.getCollegeName());
-                    edDTO.setDegree(ed.getDegree());
-                    edDTO.setSpecialization(ed.getSpecialization());
-                    edDTO.setYear(ed.getYear());
-                    edDTO.setGraduate(ed.getGraduate());
-                    return edDTO;
-                    
-                }).collect(Collectors.toList());    
-                return educationDetails;
-            })
-            .collect(Collectors.toList());
+                    }).collect(Collectors.toList());
+                    return educationDetails;
+                })
+                .collect(Collectors.toList());
 
-            return educationDetailsList.get(0);
+        return educationDetailsList.get(0);
     }
 
     @Override
@@ -141,6 +138,56 @@ public class EmployeeInfoServiceimpl implements EmployeeInfoService {
         employeeInfoRepo.updateData("2", fileName, fileData);
 
         return "success";
+    }
+
+    @Override
+    public List<JobHistoryDTO> getJobHistoryDTO() {
+        List<EmployeeInfo> empInfo = employeeInfoRepo.findAll();
+
+        if (empInfo.isEmpty()) {
+            throw new RuntimeException("No records found");
+        }
+
+        List<List<JobHistoryDTO>> jobHistorylist = empInfo.stream()
+                .map(empInfos -> {
+
+                    List<JobHistoryDTO> jobHistoryDetails = empInfos.getJobHistoryDetails().stream().map(jh -> {
+
+                        JobHistoryDTO jhlDTO = new JobHistoryDTO();
+                        jhlDTO.setCompanyName(jh.getCompanyName());
+                        jhlDTO.setStartDate(jh.getStartDate());
+                        jhlDTO.setEndDate(jh.getEndDate());
+                        jhlDTO.setField(jh.getField());
+                        jhlDTO.setExperience(jh.getExperience());
+
+                        return jhlDTO;
+                    }).collect(Collectors.toList());
+                    return jobHistoryDetails;
+
+                }).collect(Collectors.toList());
+        return jobHistorylist.get(0);
+
+    }
+
+    @Override
+    public void updateJobHistoryDTO(String employeeId, List<JobHistoryDTO> jobhistoryDTO) {
+
+        EmployeeInfo employeeInfo = employeeInfoRepo.findById(employeeId)
+        .orElseThrow(() -> new RuntimeException("No employee found with id " + employeeId));
+
+       List<JobHistoryDTO> jobhistory = employeeInfo.getJobHistoryDetails().stream()
+                .map(jhDTO -> {
+                    JobHistoryDTO jhd = new JobHistoryDTO();
+                    jhd.setCompanyName(jhDTO.getCompanyName());
+                    jhd.setStartDate(jhDTO.getStartDate());
+                    jhd.setEndDate(jhDTO.getEndDate());
+                    jhd.setField(jhDTO.getField());
+                    jhd.setExperience(jhDTO.getExperience());
+                    return jhd;
+                }).collect(Collectors.toList());
+
+                employeeInfo.setJobHistoryDetails(jobhistory);
+                employeeInfoRepo.save(employeeInfo);
     }
 
 }

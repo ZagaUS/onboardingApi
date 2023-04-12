@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.zaga.employee_onboarding.entity.EmployeeInfo;
 import com.zaga.employee_onboarding.entity.dto.EducationDetailsDTO;
 import com.zaga.employee_onboarding.entity.dto.TrainingDTO;
+import com.zaga.employee_onboarding.entity.dto.JobHistoryDTO;
 
 @Service
 public interface EmployeeInfoService {
@@ -22,4 +23,10 @@ public interface EmployeeInfoService {
     public void updateEducationDetails(String employeeId, List<EducationDetailsDTO> educationDetailsDTO);
 
     public String updateEmpDocuments(MultipartFile file) throws IOException;
+
+    public List<JobHistoryDTO> getJobHistoryDTO();
+ 
+    public void updateJobHistoryDTO(String employeeId, List<JobHistoryDTO> jobhistoryDTO);
+
+    
 }

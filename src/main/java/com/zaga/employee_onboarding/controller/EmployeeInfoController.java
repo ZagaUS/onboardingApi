@@ -1,6 +1,7 @@
 package com.zaga.employee_onboarding.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 // import javax.validation.Valid;
 
@@ -10,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 // import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.zaga.employee_onboarding.entity.EmployeeInfo;
+import com.zaga.employee_onboarding.entity.dto.JobHistoryDTO;
 import com.zaga.employee_onboarding.service.EmployeeInfoService;
 
 @RestController
@@ -52,22 +55,23 @@ public class EmployeeInfoController {
         }
     }
 
-    @PutMapping("/updateEducationDetails")
-    public ResponseEntity<?> updateEducationDetails(@RequestParam(value = "employeeId", required = true) String employeeId,
-            @RequestBody EmployeeInfo employeeInfo) {
-        try {
-            employeeInfoService.updateEducationDetails(employeeId, employeeInfo.getEducationDetails());
-            return new ResponseEntity<>("Employee Details updated successfully", HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>("ERROR: " + e, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
     @PostMapping(value = "uploadDocuments", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<String> handleFileUpload(@RequestParam(value = "file", required = true) MultipartFile file)
             throws IOException {
         String fileupdate = employeeInfoService.updateEmpDocuments(file);
         return ResponseEntity.ok("File uploaded successfully.");
+    }
+
+    @PutMapping("/updateJobHistoryDTO")
+    ResponseEntity<?> updateJobHistoryDTO(@RequestParam(value = "employeeId", required = true) String employeeId,
+            @RequestBody EmployeeInfo employeeInfo) {
+        try {
+            employeeInfoService.updateJobHistoryDTO(employeeId, employeeInfo.getJobHistoryDetails());
+            return new ResponseEntity<>("job history updated successfully", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("ERROR: " + e, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        
     }
 
 }
