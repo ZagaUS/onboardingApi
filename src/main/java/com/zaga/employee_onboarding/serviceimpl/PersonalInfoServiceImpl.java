@@ -3,7 +3,7 @@ package com.zaga.employee_onboarding.serviceimpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.zaga.employee_onboarding.entity.dto.PersonalInfo;
+import com.zaga.employee_onboarding.entity.PersonalInfo;
 import com.zaga.employee_onboarding.repository.PersonalInfoRepo;
 import com.zaga.employee_onboarding.service.PersonalInfoService;
 

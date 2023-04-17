@@ -2,7 +2,8 @@ package com.zaga.employee_onboarding.service;
 
 import org.springframework.stereotype.Service;
 
-import com.zaga.employee_onboarding.entity.dto.PersonalInfo;
+import com.zaga.employee_onboarding.entity.PersonalInfo;
+
 @Service
 public interface PersonalInfoService  {
     public  PersonalInfo getPersonalInfoDetails(String employeeId);

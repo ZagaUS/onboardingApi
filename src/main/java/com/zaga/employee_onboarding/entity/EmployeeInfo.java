@@ -7,9 +7,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.zaga.employee_onboarding.entity.dto.EducationDetailsDTO;
 import com.zaga.employee_onboarding.entity.dto.JobHistoryDTO;
-import com.zaga.employee_onboarding.entity.dto.PersonalInfo;
-// import com.zaga.employee_onboarding.entity.dto.PdfObject;
-
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -36,9 +33,6 @@ public class EmployeeInfo {
     public String employeeStatus;
     public Integer overallExperience;
     public Boolean projectAssignmentStatus;
-
-    // Personal Info
-    public PersonalInfo personalInfoDetails;
 
     // Job History Info
     public List<JobHistoryDTO> jobHistoryDetails;
