@@ -2,8 +2,6 @@ package com.zaga.employee_onboarding.entity;
 
 import java.util.List;
 
-import org.bson.types.Binary;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -11,7 +9,7 @@ import com.zaga.employee_onboarding.entity.dto.EducationDetailsDTO;
 import com.zaga.employee_onboarding.entity.dto.JobHistoryDTO;
 import com.zaga.employee_onboarding.entity.dto.PersonalInfo;
 // import com.zaga.employee_onboarding.entity.dto.PdfObject;
-import com.zaga.employee_onboarding.entity.dto.TrainingDTO;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -47,28 +45,4 @@ public class EmployeeInfo {
 
     // Education Info
     public List<EducationDetailsDTO> educationDetails;
-
-    // Skills Info
-    public List<String> skillsName;
-    public List<String> toolsName;
-    public String yearsOfExperience;
-    public String compentencyLevel;
-
-    // Employee Documents
-    public String fileName;
-     public byte[] file;
-
-    // DayOff
-    public String allocatedLeave;
-    public String used;
-    public String balance;
-
-    // Training
-    public String courseName;
-    public String certificationName;
-    public String level;
-    public String validity;
-    public List<TrainingDTO> trainingDetails;
-
-
 }
