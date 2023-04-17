@@ -1,15 +1,20 @@
 package com.zaga.employee_onboarding.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.zaga.employee_onboarding.entity.PersonalInfo;
 
 @Service
 public interface PersonalInfoService  {
-    public  PersonalInfo getPersonalInfoDetails(String employeeId);
+    
+    public PersonalInfo createPersonalInfo(PersonalInfo personalInfo);
 
-     public PersonalInfo updatePersonalInfo(String employeeId ,PersonalInfo personaldetails);
+    public List<PersonalInfo> getPersonalnfo();
 
-     public PersonalInfo createPersonalInfo(PersonalInfo personaldetails);
+    public PersonalInfo getPersonalInfoById(String employeeId);
+
+    public PersonalInfo updatePersonalInfo(String employeeId ,PersonalInfo personalInfo);
     
 }

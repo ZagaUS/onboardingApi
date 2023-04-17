@@ -1,5 +1,6 @@
 package com.zaga.employee_onboarding.entity;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -12,6 +13,7 @@ import lombok.NoArgsConstructor;
 @Document(collection = "training")
 public class Training {
 
+    @Id
     public String employeeId;
     public String employeeName;
     public String courseName;

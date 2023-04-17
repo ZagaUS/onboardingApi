@@ -33,4 +33,36 @@ public class EmployeeInfoServiceimpl implements EmployeeInfoService {
 
     }
 
+    @Override
+    public List<EmployeeInfo> getAllDetails() {
+        List<EmployeeInfo> getEmployeeInfo = employeeInfoRepo.findAll();
+        return getEmployeeInfo;
+    }
+
+    @Override
+    public EmployeeInfo getDetailsById(String employeeId) {
+        EmployeeInfo getEmployeeInfo = employeeInfoRepo.findById(employeeId).get();
+        return getEmployeeInfo;
+    }
+
+    @Override
+    public EmployeeInfo updateDetails(String employeeId, EmployeeInfo employeeInfo) {
+
+        EmployeeInfo updateEmployeeInfo = employeeInfoRepo.findById(employeeId).get();
+        updateEmployeeInfo.setEmployeeId(employeeInfo.getEmployeeId());
+        updateEmployeeInfo.setEmployeeName(employeeInfo.getEmployeeName());
+        updateEmployeeInfo.setEmployeeRole(employeeInfo.getEmployeeRole());
+        updateEmployeeInfo.setJobTitle(employeeInfo.getJobTitle());
+        updateEmployeeInfo.setDateOfJoining(employeeInfo.getDateOfJoining());
+        updateEmployeeInfo.setEmployeeEmail(employeeInfo.getEmployeeEmail());
+        updateEmployeeInfo.setPassword(employeeInfo.getPassword());
+        updateEmployeeInfo.setDepartment(employeeInfo.getDepartment());
+        updateEmployeeInfo.setReportingManager(employeeInfo.getReportingManager());
+        updateEmployeeInfo.setEmployeeStatus(employeeInfo.getEmployeeStatus());
+        updateEmployeeInfo.setOverallExperience(employeeInfo.getOverallExperience());
+        updateEmployeeInfo.setProjectAssignmentStatus(employeeInfo.getProjectAssignmentStatus());
+        return employeeInfoRepo.save(updateEmployeeInfo);
+        
+    }
+
 }

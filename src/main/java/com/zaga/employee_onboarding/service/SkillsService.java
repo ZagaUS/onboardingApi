@@ -15,4 +15,6 @@ public interface SkillsService {
 
     public Skills getSkillsById(String employeeId);
 
+    public Skills updateSkills(String employeeId, Skills skills);
+
 }

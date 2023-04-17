@@ -1,5 +1,7 @@
 package com.zaga.employee_onboarding.serviceimpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,44 +13,40 @@ import com.zaga.employee_onboarding.service.PersonalInfoService;
 public class PersonalInfoServiceImpl implements PersonalInfoService {
   
     @Autowired
-    PersonalInfoRepo repo;
-
+    PersonalInfoRepo personalInfoRepo;
 
     @Override
-    public PersonalInfo getPersonalInfoDetails(String employeeId) {
-        PersonalInfo info = repo.getPersonalnfo(employeeId);
+    public PersonalInfo createPersonalInfo(PersonalInfo personalInfo) {
+        PersonalInfo info = personalInfoRepo.save(personalInfo);
         return info;
     }
 
     @Override
-    public PersonalInfo updatePersonalInfo(String employeeId, PersonalInfo personaldetails) {
-        PersonalInfo pi = repo.getPersonalnfo(employeeId);
-        if (pi == null) {
-            throw new RuntimeException("employee not found" + employeeId);
-        }
-        else{
-            PersonalInfo info = pi;
-            info.setId(pi.getId());
-            info.setEmployeeName(personaldetails.getEmployeeName());
-            info.setEmployeeId(personaldetails.getEmployeeId());
-        info.setAddress(personaldetails.getAddress());
-        info.setGender(personaldetails.getGender());
-        info.setNationality(personaldetails.getNationality());
-        info.setMaritalStatus(personaldetails.getMaritalStatus());
-        info.setLanguage(personaldetails.getLanguage());
-        info.setDateOfBirth(personaldetails.getDateOfBirth());
-        info.setBloodGroup(personaldetails.getBloodGroup());
-        info.setPersonalEmail(personaldetails.getPersonalEmail());
-        info.setPersonalPhone(personaldetails.getPersonalPhone());
-        info.setEmergencyPhone(personaldetails.getEmergencyPhone());
-        return repo.save(info);
-        }
+    public List<PersonalInfo> getPersonalnfo() {
+        List<PersonalInfo> getPersonalInfo = personalInfoRepo.findAll();
+        return getPersonalInfo;
     }
 
     @Override
-    public PersonalInfo createPersonalInfo(PersonalInfo personaldetails) {
+    public PersonalInfo getPersonalInfoById(String employeeId) {
+        PersonalInfo getInfo = personalInfoRepo.findById(employeeId).orElse(null);
+        return getInfo;
+    }
 
-        return repo.save(personaldetails);
+    @Override
+    public PersonalInfo updatePersonalInfo(String employeeId ,PersonalInfo personalInfo) {
+        PersonalInfo updatePersonalInfo = personalInfoRepo.findById(employeeId).get();
+        updatePersonalInfo.setGender(personalInfo.getGender());
+        updatePersonalInfo.setNationality(personalInfo.getNationality());
+        updatePersonalInfo.setMaritalStatus(personalInfo.getMaritalStatus());
+        updatePersonalInfo.setLanguage(personalInfo.getLanguage());
+        updatePersonalInfo.setDateOfBirth(personalInfo.getDateOfBirth());
+        updatePersonalInfo.setBloodGroup(personalInfo.getBloodGroup());
+        updatePersonalInfo.setPersonalEmail(personalInfo.getPersonalEmail());
+        updatePersonalInfo.setPersonalPhone(personalInfo.getPersonalPhone());
+        updatePersonalInfo.setEmergencyPhone(personalInfo.getEmergencyPhone());
+        updatePersonalInfo.setAddress(personalInfo.getAddress());
+        return personalInfoRepo.save(updatePersonalInfo);
     }
     
 }

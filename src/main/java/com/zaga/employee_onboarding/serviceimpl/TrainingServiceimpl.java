@@ -35,8 +35,6 @@ public class TrainingServiceimpl implements TrainingService {
 
     @Override
     public Training updateTraining(String employeeId, Training training) {
-        // Training updatetrainingDetails = trainingRepo.save(training);
-        // return updatetrainingDetails;
         Training updateTraining = trainingRepo.findById(employeeId).get();
         updateTraining.setCourseName(training.getCourseName());
         updateTraining.setCertificationName(training.getCertificationName());

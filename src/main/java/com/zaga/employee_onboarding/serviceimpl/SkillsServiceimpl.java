@@ -22,15 +22,23 @@ public class SkillsServiceimpl implements SkillsService {
 
     @Override
     public List<Skills> getAllSkills() {
-
         List<Skills> getSkills = skillsRepo.findAll();
         return getSkills;
-
     }
 
     @Override
     public Skills getSkillsById(String employeeId) {
         Skills getSkills = skillsRepo.findById(employeeId).get();
         return getSkills;
+    }
+
+    @Override
+    public Skills updateSkills(String employeeId, Skills skills) {
+        Skills updateSkills = skillsRepo.findById(employeeId).get();
+        updateSkills.setSkillsName(skills.getSkillsName());
+        updateSkills.setToolsName(skills.getToolsName());
+        updateSkills.setCompentencyLevel(skills.getCompentencyLevel());
+        updateSkills.setYearsOfExperience(skills.getYearsOfExperience());
+        return skillsRepo.save(updateSkills);
     }
 }

@@ -16,8 +16,8 @@ public class DayOffServiceimpl implements DayOffService {
 
     @Override
     public DayOff createDayOff(DayOff dayOff) {
-        DayOff dayoff = dayOffRepo.save(dayOff);
-        return dayoff;
+        DayOff dayoff2 = dayOffRepo.save(dayOff);
+        return dayoff2;
         
     }
 
@@ -30,34 +30,32 @@ public class DayOffServiceimpl implements DayOffService {
 
     @Override
     public DayOff getDayOffById(String employeeId) {
-        DayOff dayOff = dayOffRepo.findById(employeeId).orElse(null);
-        return dayOff;
+        DayOff getDayoff = dayOffRepo.findById(employeeId).orElse(null);
+        return getDayoff;
     }
-
 
     @Override
     public DayOff updateDayOff(String employeeId, DayOff dayOff) {
 
-        DayOff dd = dayOffRepo.findById(employeeId).orElse(null);
-        if (dd == null) {
-            throw new RuntimeException("DayOff not found with id " + employeeId);
-        }
+        // DayOff dd = dayOffRepo.findById(employeeId).orElse(null);
+        // if (dd == null) {
+        //     throw new RuntimeException("DayOff not found with id " + employeeId);
+        // }
 
-        else {
-            DayOff dayoff = dd;
-            dayoff.setId(dayOff.getId());
-            dayoff.setAllocatedLeave(dayOff.getAllocatedLeave());
-            dayoff.setBalance(dayOff.getBalance());
-            dayoff.setUsed(dayOff.getUsed());
-            return dayOffRepo.save(dayoff);
-        }
-    //     // Optional<DayOff> dayOffData = dayOffRepo.findById(employeeId);
-    //     // DayOff existingDayOff = dayOffData.get();
-    //     // existingDayOff.setAllocatedLeave(dayOff.getAllocatedLeave());
-    //     // existingDayOff.setBalance(dayOff.getBalance());
-    //     // existingDayOff.setUsed(dayOff.getUsed());
-    //     // DayOff updatedDayOff = dayOffRepo.save(existingDayOff);
-    //     // return updatedDayOff;
+        // else {
+        //     DayOff dayoff = dd;
+        //     // dayoff.setId(dayOff.getId());
+        //     dayoff.setAllocatedLeave(dayOff.getAllocatedLeave());
+        //     dayoff.setBalance(dayOff.getBalance());
+        //     dayoff.setUsed(dayOff.getUsed());
+        //     return dayOffRepo.save(dayoff);
+        // }
+
+        DayOff updateDayOff = dayOffRepo.findById(employeeId).get();
+        updateDayOff.setAllocatedLeave(dayOff.getAllocatedLeave());
+        updateDayOff.setUsed(dayOff.getUsed());
+        updateDayOff.setBalance(dayOff.getBalance());
+        return dayOffRepo.save(updateDayOff);
 
     }
     

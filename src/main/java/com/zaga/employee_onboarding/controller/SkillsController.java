@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,5 +44,14 @@ public class SkillsController {
             return ResponseEntity.badRequest().build();
         }
     }
-    
+
+    @PutMapping("/updateSkills/{employeeId}")
+    public ResponseEntity<Skills> updateSkills(@RequestParam String employeeId, @RequestBody Skills skills) {
+        try {
+            Skills updateSkills = skillsService.updateSkills(employeeId, skills);
+            return ResponseEntity.ok(updateSkills);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
 }

@@ -21,7 +21,7 @@ public class DayOffController {
     @Autowired
     DayOffService dayOffService;
     
-    @PostMapping("/dayOff")
+    @PostMapping("/createDayOff")
     public ResponseEntity<DayOff> createDayOff(@RequestBody DayOff dayOff) {
         DayOff createDayOff = dayOffService.createDayOff(dayOff);
         return ResponseEntity.ok(createDayOff);
@@ -57,4 +57,5 @@ public class DayOffController {
             return ResponseEntity.badRequest().build();
         }
     }
+
 }
