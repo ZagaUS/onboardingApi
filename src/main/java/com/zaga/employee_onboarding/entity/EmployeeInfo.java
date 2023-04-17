@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.zaga.employee_onboarding.entity.dto.EducationDetailsDTO;
 import com.zaga.employee_onboarding.entity.dto.JobHistoryDTO;
+import com.zaga.employee_onboarding.entity.dto.PersonalInfo;
 // import com.zaga.employee_onboarding.entity.dto.PdfObject;
 import com.zaga.employee_onboarding.entity.dto.TrainingDTO;
 
@@ -39,16 +40,7 @@ public class EmployeeInfo {
     public Boolean projectAssignmentStatus;
 
     // Personal Info
-    public String gender;
-    public String nationality;
-    public String maritalStatus;
-    public String language;
-    public String dateOfBirth;
-    public String bloodGroup;
-    public String personalEmail;
-    public String personalPhone;
-    public String emergencyPhone;
-    public String address;
+    public PersonalInfo personalInfoDetails;
 
     // Job History Info
     public List<JobHistoryDTO> jobHistoryDetails;

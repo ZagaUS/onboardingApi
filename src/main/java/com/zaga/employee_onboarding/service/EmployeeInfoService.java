@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.zaga.employee_onboarding.entity.EmployeeInfo;
 import com.zaga.employee_onboarding.entity.dto.EducationDetailsDTO;
 import com.zaga.employee_onboarding.entity.dto.JobHistoryDTO;
+import com.zaga.employee_onboarding.entity.dto.PersonalInfo;
 
 @Service
 public interface EmployeeInfoService {
@@ -25,5 +26,10 @@ public interface EmployeeInfoService {
  
     public void updateJobHistoryDTO(String employeeId, List<JobHistoryDTO> jobhistoryDTO);
 
-    
+   public  PersonalInfo getPersonalInfoDetails(String employeeId);
+
+   public PersonalInfo updatePersonalInfo(String employeeId ,PersonalInfo personaldetails);
+   
+    // public EmployeeInfo employeeInfo(String employeeId);
+
 }
