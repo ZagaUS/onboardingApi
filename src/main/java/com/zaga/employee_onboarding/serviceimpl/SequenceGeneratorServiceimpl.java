@@ -14,12 +14,31 @@ public class SequenceGeneratorServiceimpl implements SequenceGeneratorService {
     SequenceGeneratorRepo sequenceGeneratorRepo;
 
     @Override
-    public Integer sequenceGenerator() {
-        SequenceGenerator sequence = sequenceGeneratorRepo.getSequence("employee");
-        Integer seqNum = sequence.getSeqNum();
-        Integer newSeqNo = seqNum + 1;
-        sequence.setSeqNum(newSeqNo);
-        sequenceGeneratorRepo.updatePersonalInfoByEmployeeId("employee", sequence);
-        return newSeqNo;
+    public long getNextSequence(String seqName) {
+    SequenceGenerator sequenceGenerator = sequenceGeneratorRepo.findById(seqName).orElse(null);
+        if (sequenceGenerator == null) {
+            sequenceGenerator = new SequenceGenerator();
+            sequenceGenerator.setSeqName(seqName);
+            sequenceGenerator.setSeqNum(1);
+            // sequenceGeneratorRepo.save(sequenceGenerator);
+            try {
+                sequenceGeneratorRepo.save(sequenceGenerator);
+            } catch (Exception e) {
+                System.out.println("Exception during save: " + e.getMessage());
+            }
+        }
+
+        int nextValue = sequenceGenerator.getSeqNum();
+        sequenceGenerator.setSeqNum(nextValue + 1);
+        // sequenceGeneratorRepo.save(sequenceGenerator);
+        try {
+            sequenceGeneratorRepo.save(sequenceGenerator);
+        } catch (Exception e) {
+            System.out.println("Exception during save: " + e.getMessage());
+        }
+
+        return nextValue;
+
     }
+
 }

@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.zaga.employee_onboarding.entity.EmployeeInfo;
 import com.zaga.employee_onboarding.service.EmployeeInfoService;
+import com.zaga.employee_onboarding.service.SequenceGeneratorService;
 
 @RestController
 // @CrossOrigin(origins = "http://localhost:8080")
@@ -29,12 +30,17 @@ public class EmployeeInfoController {
     @Autowired
     EmployeeInfoService employeeInfoService;
 
+    @Autowired
+    SequenceGeneratorService sequenceGeneratorService;
+
     @RequestMapping(path = "/createEmployeeInfo", method = RequestMethod.POST, consumes = {
             MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<?> addDetails(@RequestBody EmployeeInfo employeeInfo) {
         try {
             System.out.println("EmployeeInfo: " + employeeInfo);
             EmployeeInfo details = employeeInfoService.addDetails(employeeInfo);
+            // employeeInfo.setEmployeeId(String.valueOf(sequenceGeneratorService.getNextSequence("sequenceName")));
+            // employeeInfoService.addDetails(employeeInfo);
             return new ResponseEntity<>("Employee Details added successfully", HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>("ERROR: " + e, HttpStatus.INTERNAL_SERVER_ERROR);
