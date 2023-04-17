@@ -55,12 +55,19 @@ public class EmployeeInfoController {
         }
     }
 
-    @PostMapping(value = "uploadDocuments", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<String> handleFileUpload(@RequestParam(value = "file", required = true) MultipartFile file)
-            throws IOException {
-        String fileupdate = employeeInfoService.updateEmpDocuments(file);
-        return ResponseEntity.ok("File uploaded successfully.");
-    }
+    // @PostMapping(value = "uploadDocuments", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    // public ResponseEntity<String> handleFileUpload(@RequestParam(value = "file", required = true) MultipartFile file)
+    //         throws IOException {
+    //     String fileupdate = employeeInfoService.updateEmpDocuments(file);
+    //     return ResponseEntity.ok("File uploaded successfully.");
+    // }
+
+    // @PostMapping(value = "uploadDocuments", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    // public ResponseEntity<String> uploadDocument(@RequestParam(value = "file", required = true) MultipartFile file)
+    //             throws IOException {
+    //         String fileupdate = employeeInfoService.uploadDocument(file);
+    //         return ResponseEntity.ok("File uploaded successfully.");    
+    // }
 
     @PutMapping("/updateJobHistoryDTO")
     ResponseEntity<?> updateJobHistoryDTO(@RequestParam(value = "employeeId", required = true) String employeeId,
@@ -73,5 +80,32 @@ public class EmployeeInfoController {
         }
         
     }
+
+    // @GetMapping("/getDocumentDetails")
+    // public ResponseEntity<?> getDocumentDetails() {
+    //     try {
+    //         return new ResponseEntity<>(employeeInfoService.getDocumentDetails(), HttpStatus.OK);
+    //     } catch (Exception e) {
+    //         return new ResponseEntity<>("ERROR: " + e, HttpStatus.INTERNAL_SERVER_ERROR);
+    //     }
+    // }
+
+    // @GetMapping("/getListOfEmployee")
+    // public ResponseEntity<?> getEmployeeDetails() {
+    //     try {
+    //         return new ResponseEntity<>(employeeInfoService.getEmployeeDetails(), HttpStatus.OK);
+    //     } catch (Exception e) {
+    //         return new ResponseEntity<>("ERROR: " + e, HttpStatus.INTERNAL_SERVER_ERROR);
+    //     }
+    // }
+
+    // @GetMapping("/getEmployeeInfo")
+    // public ResponseEntity<?> getDayOffDetails() {
+    //     try {
+    //         return new ResponseEntity<>(employeeInfoService.getDayOffDetails(), HttpStatus.OK);
+    //     } catch (Exception e) {
+    //         return new ResponseEntity<>("ERROR: " + e, HttpStatus.INTERNAL_SERVER_ERROR);
+    //     }
+    // }
 
 }

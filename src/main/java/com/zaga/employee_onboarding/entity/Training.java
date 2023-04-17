@@ -1,4 +1,6 @@
-package com.zaga.employee_onboarding.entity.dto;
+package com.zaga.employee_onboarding.entity;
+
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,9 +9,14 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TrainingDTO {
+@Document(collection = "training")
+public class Training {
+
+    public String employeeId;
+    public String employeeName;
     public String courseName;
     public String certificationName;
     public String level;
     public String validity;
+    
 }
