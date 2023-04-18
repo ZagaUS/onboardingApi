@@ -23,7 +23,7 @@ public class EducationDetailController {
         return ResponseEntity.ok(createEducationDetails);
     }
 
-    @GetMapping("/getEducationDetailsById/{employeeId}")
+    @GetMapping("/getEducationDetailsById")
     public ResponseEntity<EducationDetails> getEducationDetailsById(String employeeId) {
         try {
             EducationDetails getEducationDetailsById = service.getEducationalnfoById(employeeId);
@@ -33,9 +33,10 @@ public class EducationDetailController {
         }
     }
 
-    @PutMapping("/updateEducationDetails/{employeeId}")
-    public ResponseEntity<EducationDetails> updateEducationDetails(String employeeId,
+    @PutMapping("/updateEducationDetails")
+    public ResponseEntity<EducationDetails> updateEducationDetails(
             EducationDetails educationDetails) {
+        String employeeId = educationDetails.getEmployeeId();
         try {
             EducationDetails updateEducationDetails = service.updateEducationalInfo(employeeId, educationDetails);
             return ResponseEntity.ok(updateEducationDetails);

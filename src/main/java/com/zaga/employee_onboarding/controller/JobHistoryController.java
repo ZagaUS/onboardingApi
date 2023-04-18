@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.zaga.employee_onboarding.entity.JobHistory;
@@ -24,7 +25,7 @@ public class JobHistoryController {
         return ResponseEntity.ok(createJobHistory);
     }
 
-    @GetMapping("/getJobHistoryById/{employeeId}")
+    @GetMapping("/getJobHistoryById")
     public ResponseEntity<JobHistory> getJobHistoryById(String employeeId) {
         try {
             JobHistory getJobHistoryById = service.getJobHistorynfoById(employeeId);
@@ -34,9 +35,10 @@ public class JobHistoryController {
         }
     }
 
-    @PutMapping("/updateJobHistory/{employeeId}")
-    public ResponseEntity<JobHistory> updateJobHistory(String employeeId,
-            JobHistory jobHistory) {
+    @PutMapping("/updateJobHistory")
+    public ResponseEntity<JobHistory> updateJobHistory(
+            @RequestBody JobHistory jobHistory) {
+        String employeeId = jobHistory.getEmployeeId();
         try {
             JobHistory updateJobHistory = service.updateJobHistoryInfo(employeeId, jobHistory);
             return ResponseEntity.ok(updateJobHistory);

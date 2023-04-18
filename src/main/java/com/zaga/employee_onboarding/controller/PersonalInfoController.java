@@ -19,7 +19,7 @@ public class PersonalInfoController {
     PersonalInfoService service;
 
     @PostMapping("/addPersonalInfo")
-    public ResponseEntity<PersonalInfo> createPersonalInfo(@RequestBody PersonalInfo personalInfo){
+    public ResponseEntity<PersonalInfo> createPersonalInfo(@RequestBody PersonalInfo personalInfo) {
         PersonalInfo createPersonalInfo = service.createPersonalInfo(personalInfo);
         return ResponseEntity.ok(createPersonalInfo);
     }
@@ -34,7 +34,7 @@ public class PersonalInfoController {
         }
     }
 
-    @GetMapping("/getPersonalInfoById/{employeeId}")
+    @GetMapping("/getPersonalInfoById")
     public ResponseEntity<PersonalInfo> getPersonalInfoById(String employeeId) {
         try {
             PersonalInfo getPersonalInfoById = service.getPersonalInfoById(employeeId);
@@ -45,7 +45,7 @@ public class PersonalInfoController {
     }
 
     @PutMapping("/updatePersonalInfo/{employeeId}")
-    public ResponseEntity<PersonalInfo> updatePersonalInfo(String employeeId ,PersonalInfo personalInfo) {
+    public ResponseEntity<PersonalInfo> updatePersonalInfo(String employeeId, PersonalInfo personalInfo) {
         try {
             PersonalInfo updatePersonalInfo = service.updatePersonalInfo(employeeId, personalInfo);
             return ResponseEntity.ok(updatePersonalInfo);
