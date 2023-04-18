@@ -10,9 +10,9 @@ import com.zaga.employee_onboarding.entity.JobHistory;
 public interface JobHistoryRepo extends MongoRepository<JobHistory, String> {
 
     @Query(value = "{'employeeId' : ?0}")
-    public JobHistory getEducationalDetails(String employeeId);
+    public JobHistory getJobHistoryDetails(String employeeId);
 
     @Query(value = "{'employeeName' : ?0}")
-    public JobHistory getEducationalDetailsbyName(String employeeName);
+    public JobHistory getJobHistorybyName(String employeeName);
 
 }

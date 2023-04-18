@@ -34,10 +34,11 @@ public class EducationDetailController {
     }
 
     @PutMapping("/updateEducationDetails")
-    public ResponseEntity<EducationDetails> updateEducationDetails(
-            EducationDetails educationDetails) {
+    public ResponseEntity<EducationDetails> updateEducationDetails(@RequestBody EducationDetails educationDetails) {
+        System.out.println(educationDetails);
         String employeeId = educationDetails.getEmployeeId();
         try {
+            System.out.println(employeeId);
             EducationDetails updateEducationDetails = service.updateEducationalInfo(employeeId, educationDetails);
             return ResponseEntity.ok(updateEducationDetails);
         } catch (Exception e) {

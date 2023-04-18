@@ -35,7 +35,7 @@ public class JobHistoryServiceImpl implements JobHistoryService {
 
     @Override
     public JobHistory updateJobHistoryInfo(String employeeId, JobHistory dto) {
-        JobHistory updateJobhistoryInfo = repo.findById(employeeId).get();
+        JobHistory updateJobhistoryInfo = repo.getJobHistoryDetails(employeeId);
         dto.setId(updateJobhistoryInfo.getId());
 
         return repo.save(updateJobhistoryInfo);

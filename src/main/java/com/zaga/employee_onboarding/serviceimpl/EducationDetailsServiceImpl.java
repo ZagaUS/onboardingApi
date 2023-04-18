@@ -40,7 +40,7 @@ public class EducationDetailsServiceImpl implements EducationDetailsService {
 
     @Override
     public EducationDetails updateEducationalInfo(String employeeId, EducationDetails dto) {
-        EducationDetails updatePersonalInfo = repo.findById(employeeId).get();
+        EducationDetails updatePersonalInfo = repo.getEducationalDetails(employeeId);
         dto.setId(updatePersonalInfo.getId());
 
         return repo.save(updatePersonalInfo);
