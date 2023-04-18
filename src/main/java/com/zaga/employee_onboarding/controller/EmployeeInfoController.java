@@ -33,9 +33,7 @@ public class EmployeeInfoController {
     @Autowired
     SequenceGeneratorService sequenceGeneratorService;
 
-    @Autowired
     
-
 
     @RequestMapping(path = "/createEmployeeInfo", method = RequestMethod.POST, consumes = {
             MediaType.APPLICATION_JSON_VALUE })

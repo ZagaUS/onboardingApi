@@ -3,6 +3,7 @@ package com.zaga.employee_onboarding.serviceimpl;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.zaga.employee_onboarding.entity.EducationDetails;
 import com.zaga.employee_onboarding.entity.EmployeeInfo;
@@ -17,6 +18,7 @@ import com.zaga.employee_onboarding.service.PersonalInfoService;
 import com.zaga.employee_onboarding.service.SequenceGeneratorService;
 import com.zaga.employee_onboarding.service.SkillsService;
 
+@Service
 public class EmployeeCreateServiceImpl {
 
     @Autowired
