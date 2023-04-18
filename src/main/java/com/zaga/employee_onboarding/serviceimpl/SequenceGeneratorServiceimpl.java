@@ -14,7 +14,7 @@ public class SequenceGeneratorServiceimpl implements SequenceGeneratorService {
     SequenceGeneratorRepo sequenceGeneratorRepo;
 
     @Override
-    public long getNextSequence(String seqName) {
+    public String getNextSequence(String seqName) {
     SequenceGenerator sequenceGenerator = sequenceGeneratorRepo.findById(seqName).orElse(null);
         if (sequenceGenerator == null) {
             sequenceGenerator = new SequenceGenerator();
@@ -37,7 +37,7 @@ public class SequenceGeneratorServiceimpl implements SequenceGeneratorService {
             System.out.println("Exception during save: " + e.getMessage());
         }
 
-        return nextValue;
+        return Integer.toString(nextValue);
 
     }
 

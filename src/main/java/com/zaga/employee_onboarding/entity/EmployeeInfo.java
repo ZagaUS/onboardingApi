@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.zaga.employee_onboarding.entity.dto.EducationDetailsDTO;
 import com.zaga.employee_onboarding.entity.dto.JobHistoryDTO;
 
@@ -15,6 +16,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties ("{employeeId}")
 @Document(collection = "employeeInfo")
 
 public class EmployeeInfo {
