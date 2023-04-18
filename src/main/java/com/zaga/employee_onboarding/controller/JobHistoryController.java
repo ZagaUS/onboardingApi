@@ -13,12 +13,12 @@ import com.zaga.employee_onboarding.entity.JobHistory;
 import com.zaga.employee_onboarding.repository.JobHistoryRepo;
 import com.zaga.employee_onboarding.service.JobHistoryService;
 
-@RestController("/jobHistory")
+@RestController
 public class JobHistoryController {
     @Autowired
     JobHistoryService service;
 
-    @PostMapping("/create")
+    @PostMapping("/jobHistory/create")
     public ResponseEntity<JobHistory> createJobHistory(@RequestBody JobHistory jobHistory) {
         JobHistory createJobHistory = service.createJobHistoryInfo(jobHistory);
         return ResponseEntity.ok(createJobHistory);

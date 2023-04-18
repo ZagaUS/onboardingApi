@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.zaga.employee_onboarding.entity.EducationDetails;
 import com.zaga.employee_onboarding.service.EducationDetailsService;
 
-@RestController("/educationDetails")
+@RestController
 public class EducationDetailController {
 
     @Autowired
     EducationDetailsService service;
 
-    @PostMapping("/create")
+    @PostMapping("/educationDetails/create")
     public ResponseEntity<EducationDetails> createEducationDetails(@RequestBody EducationDetails educationDetails) {
         EducationDetails createEducationDetails = service.createEducationalInfo(educationDetails);
         return ResponseEntity.ok(createEducationDetails);
@@ -35,9 +35,9 @@ public class EducationDetailController {
 
     @PutMapping("/updateEducationDetails/{employeeId}")
     public ResponseEntity<EducationDetails> updateEducationDetails(String employeeId,
-            EducationDetails EducationDetails) {
+            EducationDetails educationDetails) {
         try {
-            EducationDetails updateEducationDetails = service.updateEducationalInfo(employeeId, EducationDetails);
+            EducationDetails updateEducationDetails = service.updateEducationalInfo(employeeId, educationDetails);
             return ResponseEntity.ok(updateEducationDetails);
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
