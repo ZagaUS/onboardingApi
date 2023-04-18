@@ -38,7 +38,8 @@ public class JobHistoryServiceImpl implements JobHistoryService {
         JobHistory updateJobhistoryInfo = repo.getJobHistoryDetails(employeeId);
         dto.setId(updateJobhistoryInfo.getId());
 
-        return repo.save(updateJobhistoryInfo);
+        return repo.save(dto);
+
     }
 
 }

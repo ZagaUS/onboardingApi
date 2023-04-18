@@ -43,7 +43,7 @@ public class EducationDetailsServiceImpl implements EducationDetailsService {
         EducationDetails updatePersonalInfo = repo.getEducationalDetails(employeeId);
         dto.setId(updatePersonalInfo.getId());
 
-        return repo.save(updatePersonalInfo);
+        return repo.save(dto);
     }
 
 }
