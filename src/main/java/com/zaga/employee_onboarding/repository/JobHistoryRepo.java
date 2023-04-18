@@ -1,0 +1,18 @@
+package com.zaga.employee_onboarding.repository;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.zaga.employee_onboarding.entity.JobHistory;
+
+@Repository
+public interface JobHistoryRepo extends MongoRepository<JobHistory, String> {
+
+    @Query(value = "{'employeeId' : ?0}")
+    public JobHistory getEducationalDetails(String employeeId);
+
+    @Query(value = "{'employeeName' : ?0}")
+    public JobHistory getEducationalDetailsbyName(String employeeName);
+
+}

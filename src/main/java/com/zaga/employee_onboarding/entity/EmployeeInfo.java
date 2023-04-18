@@ -35,8 +35,8 @@ public class EmployeeInfo {
     public Boolean projectAssignmentStatus;
 
     // Job History Info
-    public List<JobHistoryDTO> jobHistoryDetails;
+    // public List<JobHistoryDTO> jobHistoryDetails;
 
     // Education Info
-    public List<EducationDetailsDTO> educationDetails;
+    // public List<EducationDetailsDTO> educationDetails;
 }
