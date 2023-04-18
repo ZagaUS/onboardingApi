@@ -2,13 +2,9 @@ package com.zaga.employee_onboarding.serviceimpl;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.annotation.Id;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import com.zaga.employee_onboarding.entity.EmployeeInfo;
 import com.zaga.employee_onboarding.entity.ListOfEmployeesDTO;
 import com.zaga.employee_onboarding.repository.EmployeeInfoRepo;
@@ -52,6 +48,20 @@ public class EmployeeInfoServiceimpl implements EmployeeInfoService {
         }).collect(Collectors.toList());
         return listOfEmployees;
     }
+
+    // @Override
+    // public ListOfEmployeesDTO getListOfEmployeesById(String employeeId) {
+    //     EmployeeInfo employeeInfo = employeeInfoRepo.findById(employeeId).get();
+    //     if (employeeInfo == null) {
+    //         return null; // or throw an exception if you prefer
+    //     }
+    //     ListOfEmployeesDTO listOfEmployeesDTO = new ListOfEmployeesDTO();
+    //     listOfEmployeesDTO.setEmployeeId(employeeInfo.getEmployeeId());
+    //     listOfEmployeesDTO.setEmployeeName(employeeInfo.getEmployeeName());
+    //     listOfEmployeesDTO.setEmployeeRole(employeeInfo.getEmployeeRole());
+    //     return listOfEmployeesDTO;
+    // }
+    
 
     @Override
     public EmployeeInfo getDetailsById(String employeeId) {

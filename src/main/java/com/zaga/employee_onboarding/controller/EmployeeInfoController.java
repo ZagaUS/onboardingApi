@@ -66,6 +66,16 @@ public class EmployeeInfoController {
         }
     }
 
+    // @GetMapping("/getListOfEmployeeInfo/{employeeId}")
+    // public ResponseEntity<ListOfEmployeesDTO> getListOfEmployeesById(@PathVariable String employeeId) {
+    //     try {
+    //         ListOfEmployeesDTO getListOfEmployeeInfoById = employeeInfoService.getListOfEmployeesById(employeeId);
+    //         return ResponseEntity.ok(getListOfEmployeeInfoById);
+    //     } catch (Exception e) {
+    //         return ResponseEntity.badRequest().build();
+    //     }
+    // }
+
     @GetMapping("/getEmployeeInfo/{employeeId}")
     public ResponseEntity<EmployeeInfo> getDetailsById(@PathVariable String employeeId) {
         try {

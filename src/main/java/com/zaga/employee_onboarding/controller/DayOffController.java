@@ -38,7 +38,7 @@ public class DayOffController {
         
     }
 
-    @GetMapping("/getDayOffById/{employeeId}")
+    @GetMapping("/getDayOffById")
     public ResponseEntity<DayOff> getDayOffById(@RequestParam String employeeId) {
         try {
             DayOff getDayOffById = dayOffService.getDayOffById(employeeId);
