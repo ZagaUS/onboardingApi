@@ -1,9 +1,7 @@
 package com.zaga.employee_onboarding.controller;
 
-import java.io.IOException;
 import java.util.List;
 
-import javax.websocket.server.PathParam;
 
 // import javax.validation.Valid;
 
@@ -21,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.zaga.employee_onboarding.entity.EmployeeInfo;
+import com.zaga.employee_onboarding.entity.ListOfEmployeesDTO;
 import com.zaga.employee_onboarding.service.EmployeeInfoService;
 import com.zaga.employee_onboarding.service.SequenceGeneratorService;
 
@@ -52,6 +51,16 @@ public class EmployeeInfoController {
         try {
             List<EmployeeInfo> getAllDetailsList = employeeInfoService.getAllDetails();
             return ResponseEntity.ok(getAllDetailsList);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @GetMapping("/getListOfEmployeeInfo")
+    public ResponseEntity<List<ListOfEmployeesDTO>> getListOfEmployees() {
+        try {
+            List<ListOfEmployeesDTO> getListOfEmployeeInfo = employeeInfoService.getListOfEmployees();
+            return ResponseEntity.ok(getListOfEmployeeInfo);
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }

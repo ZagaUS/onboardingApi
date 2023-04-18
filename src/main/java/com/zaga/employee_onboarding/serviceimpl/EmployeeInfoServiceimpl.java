@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import com.zaga.employee_onboarding.entity.EmployeeInfo;
+import com.zaga.employee_onboarding.entity.ListOfEmployeesDTO;
 import com.zaga.employee_onboarding.repository.EmployeeInfoRepo;
 import com.zaga.employee_onboarding.repository.SequenceGeneratorRepo;
 import com.zaga.employee_onboarding.service.EmployeeInfoService;
@@ -37,6 +38,19 @@ public class EmployeeInfoServiceimpl implements EmployeeInfoService {
     public List<EmployeeInfo> getAllDetails() {
         List<EmployeeInfo> getEmployeeInfo = employeeInfoRepo.findAll();
         return getEmployeeInfo;
+    }
+
+    @Override
+    public List<ListOfEmployeesDTO> getListOfEmployees() {
+        List<EmployeeInfo> getEmployeeInfo = employeeInfoRepo.findAll();
+        List<ListOfEmployeesDTO> listOfEmployees = getEmployeeInfo.stream().map(employee -> {
+            ListOfEmployeesDTO listOfEmployeesDTO = new ListOfEmployeesDTO();
+            listOfEmployeesDTO.setEmployeeId(employee.getEmployeeId());
+            listOfEmployeesDTO.setEmployeeName(employee.getEmployeeName());
+            listOfEmployeesDTO.setEmployeeRole(employee.getEmployeeRole());
+            return listOfEmployeesDTO;
+        }).collect(Collectors.toList());
+        return listOfEmployees;
     }
 
     @Override

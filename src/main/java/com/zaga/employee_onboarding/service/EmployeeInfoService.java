@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 // import org.springframework.web.multipart.MultipartFile;
 
 import com.zaga.employee_onboarding.entity.EmployeeInfo;
+import com.zaga.employee_onboarding.entity.ListOfEmployeesDTO;
 
 @Service
 public interface EmployeeInfoService {
@@ -14,6 +15,8 @@ public interface EmployeeInfoService {
     public EmployeeInfo addDetails(EmployeeInfo employeeInfo) throws IOException;
 
     public List<EmployeeInfo> getAllDetails();
+
+    public List<ListOfEmployeesDTO> getListOfEmployees();
 
     public EmployeeInfo getDetailsById(String employeeId);
 
