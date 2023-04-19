@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.zaga.employee_onboarding.entity.EmployeeInfo;
@@ -34,15 +34,15 @@ public class EmployeeInfoController {
 
     @RequestMapping(path = "/createEmployeeInfo", method = RequestMethod.POST, consumes = {
             MediaType.APPLICATION_JSON_VALUE })
-    public ResponseEntity<?> addDetails(@RequestBody EmployeeInfo employeeInfo) {
+    public ResponseEntity<EmployeeInfo> addDetails(@RequestBody EmployeeInfo employeeInfo) {
         try {
             System.out.println("EmployeeInfo: " + employeeInfo);
             EmployeeInfo details = employeeInfoService.addDetails(employeeInfo);
             // employeeInfo.setEmployeeId(String.valueOf(sequenceGeneratorService.getNextSequence("sequenceName")));
             // employeeInfoService.addDetails(employeeInfo);
-            return new ResponseEntity<>("Employee Details added successfully", HttpStatus.OK);
+            return ResponseEntity.ok(details);
         } catch (Exception e) {
-            return new ResponseEntity<>("ERROR: " + e, HttpStatus.INTERNAL_SERVER_ERROR);
+            return ResponseEntity.badRequest().build();
         }
     }
 
@@ -76,8 +76,8 @@ public class EmployeeInfoController {
     //     }
     // }
 
-    @GetMapping("/getEmployeeInfo/{employeeId}")
-    public ResponseEntity<EmployeeInfo> getDetailsById(@PathVariable String employeeId) {
+    @GetMapping("/getEmployeeInfo")
+    public ResponseEntity<EmployeeInfo> getDetailsById(@RequestParam String employeeId) {
         try {
             EmployeeInfo getDetailsById = employeeInfoService.getDetailsById(employeeId);
             return ResponseEntity.ok(getDetailsById);
@@ -87,8 +87,7 @@ public class EmployeeInfoController {
     }
 
     @PutMapping("/updateEmployeeInfo/{employeeId}")
-    public ResponseEntity<EmployeeInfo> updateDetails(@PathVariable String employeeId,
-            @RequestBody EmployeeInfo employeeInfo) {
+    public ResponseEntity<EmployeeInfo> updateDetails(@PathVariable String employeeId, @RequestBody EmployeeInfo employeeInfo) {
         try {
             EmployeeInfo updateDetails = employeeInfoService.updateDetails(employeeId, employeeInfo);
             return ResponseEntity.ok(updateDetails);

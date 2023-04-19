@@ -36,7 +36,7 @@ public class TrainingController {
         }
     }
 
-    @GetMapping("/getTrainingById/{employeeId}")
+    @GetMapping("/getTrainingById")
     public ResponseEntity<Training> getTrainingById(@RequestParam String employeeId) {
         try {
             Training getTrainingById = trainingService.getTrainingById(employeeId);
@@ -46,7 +46,7 @@ public class TrainingController {
         }
     }
 
-    @PutMapping("/updateTraining/{employeeId}")
+    @PutMapping("/updateTraining")
     public ResponseEntity<Training> updateTraining(@RequestParam String employeeId, @RequestBody Training training) {
         try {
             Training updateTraining = trainingService.updateTraining(employeeId, training);
