@@ -18,7 +18,6 @@ import lombok.NoArgsConstructor;
 public class JobHistory {
 
     public ObjectId id;
-
     public String employeeId;
     public String employeeName;
     public List<JobHistoryDTO> jobHistoryDetails;

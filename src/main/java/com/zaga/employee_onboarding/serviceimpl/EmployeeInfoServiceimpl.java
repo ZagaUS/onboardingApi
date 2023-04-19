@@ -23,7 +23,8 @@ public class EmployeeInfoServiceimpl implements EmployeeInfoService {
     @Override
     public EmployeeInfo addDetails(EmployeeInfo employeeInfo) throws IOException {
 
-        // String empId = sequenceGeneratorRepo.getSequence("employee").getSeqNum().toString();
+        // String empId =
+        // sequenceGeneratorRepo.getSequence("employee").getSeqNum().toString();
         // employeeInfo.setEmployeeId(empId);
         EmployeeInfo employeeInfo1 = employeeInfoRepo.save(employeeInfo);
         return employeeInfo1;
@@ -44,6 +45,8 @@ public class EmployeeInfoServiceimpl implements EmployeeInfoService {
             listOfEmployeesDTO.setEmployeeId(employee.getEmployeeId());
             listOfEmployeesDTO.setEmployeeName(employee.getEmployeeName());
             listOfEmployeesDTO.setEmployeeRole(employee.getEmployeeRole());
+            listOfEmployeesDTO.setProjectAssignmentStatus(employee.getProjectAssignmentStatus());
+
             return listOfEmployeesDTO;
         }).collect(Collectors.toList());
         return listOfEmployees;
@@ -51,17 +54,16 @@ public class EmployeeInfoServiceimpl implements EmployeeInfoService {
 
     // @Override
     // public ListOfEmployeesDTO getListOfEmployeesById(String employeeId) {
-    //     EmployeeInfo employeeInfo = employeeInfoRepo.findById(employeeId).get();
-    //     if (employeeInfo == null) {
-    //         return null; // or throw an exception if you prefer
-    //     }
-    //     ListOfEmployeesDTO listOfEmployeesDTO = new ListOfEmployeesDTO();
-    //     listOfEmployeesDTO.setEmployeeId(employeeInfo.getEmployeeId());
-    //     listOfEmployeesDTO.setEmployeeName(employeeInfo.getEmployeeName());
-    //     listOfEmployeesDTO.setEmployeeRole(employeeInfo.getEmployeeRole());
-    //     return listOfEmployeesDTO;
+    // EmployeeInfo employeeInfo = employeeInfoRepo.findById(employeeId).get();
+    // if (employeeInfo == null) {
+    // return null; // or throw an exception if you prefer
     // }
-    
+    // ListOfEmployeesDTO listOfEmployeesDTO = new ListOfEmployeesDTO();
+    // listOfEmployeesDTO.setEmployeeId(employeeInfo.getEmployeeId());
+    // listOfEmployeesDTO.setEmployeeName(employeeInfo.getEmployeeName());
+    // listOfEmployeesDTO.setEmployeeRole(employeeInfo.getEmployeeRole());
+    // return listOfEmployeesDTO;
+    // }
 
     @Override
     public EmployeeInfo getDetailsById(String employeeId) {
@@ -86,7 +88,7 @@ public class EmployeeInfoServiceimpl implements EmployeeInfoService {
         updateEmployeeInfo.setOverallExperience(employeeInfo.getOverallExperience());
         updateEmployeeInfo.setProjectAssignmentStatus(employeeInfo.getProjectAssignmentStatus());
         return employeeInfoRepo.save(updateEmployeeInfo);
-        
+
     }
 
 }

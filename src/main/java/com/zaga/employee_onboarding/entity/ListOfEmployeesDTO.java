@@ -11,4 +11,5 @@ public class ListOfEmployeesDTO {
     public String employeeId;
     public String employeeName;
     public String employeeRole;
+    public Boolean projectAssignmentStatus;
 }
