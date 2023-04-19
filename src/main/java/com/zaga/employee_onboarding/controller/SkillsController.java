@@ -35,8 +35,8 @@ public class SkillsController {
         }
     }
 
-    @GetMapping("/getSkillsById/{employeeId}")
-    public ResponseEntity<Skills> getSkillsById(@RequestParam String employeeId) {
+    @GetMapping("/getSkillsById")
+    public ResponseEntity<Skills> getSkillsById(String employeeId) {
         try {
             Skills getSkillsById = skillsService.getSkillsById(employeeId);
             return ResponseEntity.ok(getSkillsById);
@@ -45,8 +45,8 @@ public class SkillsController {
         }
     }
 
-    @PutMapping("/updateSkills/{employeeId}")
-    public ResponseEntity<Skills> updateSkills(@RequestParam String employeeId, @RequestBody Skills skills) {
+    @PutMapping("/updateSkills")
+    public ResponseEntity<Skills> updateSkills(String employeeId, @RequestBody Skills skills) {
         try {
             Skills updateSkills = skillsService.updateSkills(employeeId, skills);
             return ResponseEntity.ok(updateSkills);
@@ -54,4 +54,5 @@ public class SkillsController {
             return ResponseEntity.badRequest().build();
         }
     }
+
 }

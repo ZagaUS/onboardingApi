@@ -49,7 +49,7 @@ public class DayOffController {
         }
     }
 
-    @PutMapping("/updateDayOff/{employeeId}")
+    @PutMapping("/updateDayOff")
     public ResponseEntity<DayOff> updateDayOff(@PathVariable String employeeId, @RequestBody DayOff dayOff) {
         try {
             DayOff updateDayOff = dayOffService.updateDayOff(employeeId, dayOff);
