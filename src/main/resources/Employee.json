@@ -1,0 +1,56 @@
+{
+  "employeeInfo": {
+    "employeeId": "",
+    "employeeName": "Jeyaraghul R",
+    "employeeRole": "Software Developer",
+    "jobTitle": "Software Developer",
+    "dateOfJoining": "string",
+    "employeeEmail": "jeyaraghul@zagaopensource.com",
+    "password": "",
+    "department": "Software Development",
+    "reportingManager": "Sharanya Shekar",
+    "employeeStatus": "Engaged",
+    "overallExperience": 0,
+    "projectAssignmentStatus": true
+  },
+  "personalInfo": {
+    "employeeId": "string",
+    "employeeName": "string",
+    "gender": "string",
+    "nationality": "string",
+    "maritalStatus": "string",
+    "language": ["string"],
+    "dateOfBirth": "string",
+    "bloodGroup": "string",
+    "personalEmail": "string",
+    "personalPhone": "string",
+    "emergencyPhone": "string",
+    "address": "string"
+  },
+  "educationDetails": [
+    {
+      "collegeName": "string",
+      "degree": "string",
+      "specialization": "string",
+      "year": "string",
+      "graduate": "string"
+    }
+  ],
+  "jobHistoryDetails": [
+    {
+      "companyName": "string",
+      "startDate": "string",
+      "endDate": "string",
+      "field": "string",
+      "experience": "string"
+    }
+  ],
+  "skills": {
+    "employeeId": "string",
+    "employeeName": "string",
+    "skillsName": ["string"],
+    "toolsName": ["string"],
+    "yearsOfExperience": "string",
+    "compentencyLevel": "string"
+  }
+}
