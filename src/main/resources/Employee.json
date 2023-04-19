@@ -10,47 +10,47 @@
     "department": "Software Development",
     "reportingManager": "Sharanya Shekar",
     "employeeStatus": "Engaged",
-    "overallExperience": 0,
+    "overallExperience": 1,
     "projectAssignmentStatus": true
   },
   "personalInfo": {
-    "employeeId": "string",
-    "employeeName": "string",
-    "gender": "string",
-    "nationality": "string",
-    "maritalStatus": "string",
-    "language": ["string"],
-    "dateOfBirth": "string",
-    "bloodGroup": "string",
-    "personalEmail": "string",
-    "personalPhone": "string",
-    "emergencyPhone": "string",
-    "address": "string"
+    "employeeId": "",
+    "employeeName": "",
+    "gender": "Male",
+    "nationality": "Indian",
+    "maritalStatus": "Single",
+    "language": ["English", "Tamil"],
+    "dateOfBirth": "1997-03-06",
+    "bloodGroup": "o +",
+    "personalEmail": "jeyaraghul@gmail.com",
+    "personalPhone": "9894473885",
+    "emergencyPhone": "9894473885",
+    "address": "Appar Street , PRR nagar , Rajapalayam"
   },
   "educationDetails": [
     {
-      "collegeName": "string",
-      "degree": "string",
-      "specialization": "string",
-      "year": "string",
-      "graduate": "string"
+      "collegeName": "SRM INSTITUTE OF SCIENCE AND TECHNOLOGY",
+      "degree": "Btech",
+      "specialization": "ELECTRONICS AND COMMUNICATION ENGINEERING",
+      "year": "2019",
+      "graduate": "YES"
     }
   ],
   "jobHistoryDetails": [
     {
-      "companyName": "string",
-      "startDate": "string",
-      "endDate": "string",
-      "field": "string",
-      "experience": "string"
+      "companyName": "zagaopensource",
+      "startDate": "2021-11-04",
+      "endDate": "",
+      "field": "IT",
+      "experience": "1"
     }
   ],
   "skills": {
-    "employeeId": "string",
-    "employeeName": "string",
-    "skillsName": ["string"],
-    "toolsName": ["string"],
-    "yearsOfExperience": "string",
-    "compentencyLevel": "string"
+    "employeeId": "",
+    "employeeName": "",
+    "skillsName": [""],
+    "toolsName": [""],
+    "yearsOfExperience": "1",
+    "compentencyLevel": "Intermediate"
   }
 }

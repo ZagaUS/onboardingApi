@@ -29,7 +29,7 @@ public class JobHistoryServiceImpl implements JobHistoryService {
 
     @Override
     public JobHistory getJobHistorynfoById(String employeeId) {
-        JobHistory getInfo = repo.findById(employeeId).orElse(null);
+        JobHistory getInfo = repo.getJobHistoryDetails(employeeId);
         return getInfo;
     }
 

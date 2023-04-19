@@ -34,7 +34,7 @@ public class EducationDetailsServiceImpl implements EducationDetailsService {
 
     @Override
     public EducationDetails getEducationalnfoById(String employeeId) {
-        EducationDetails getInfo = repo.findById(employeeId).orElse(null);
+        EducationDetails getInfo = repo.getEducationalDetails(employeeId);
         return getInfo;
     }
 
