@@ -1,56 +1,649 @@
-{
-  "employeeInfo": {
-    "employeeId": "",
-    "employeeName": "Jeyaraghul R",
-    "employeeRole": "Software Developer",
-    "jobTitle": "Software Developer",
-    "dateOfJoining": "string",
-    "employeeEmail": "jeyaraghul@zagaopensource.com",
-    "password": "",
-    "department": "Software Development",
-    "reportingManager": "Sharanya Shekar",
-    "employeeStatus": "Engaged",
-    "overallExperience": 1,
-    "projectAssignmentStatus": true
-  },
-  "personalInfo": {
-    "employeeId": "",
-    "employeeName": "",
-    "gender": "Male",
-    "nationality": "Indian",
-    "maritalStatus": "Single",
-    "language": ["English", "Tamil"],
-    "dateOfBirth": "1997-03-06",
-    "bloodGroup": "o +",
-    "personalEmail": "jeyaraghul@gmail.com",
-    "personalPhone": "9894473885",
-    "emergencyPhone": "9894473885",
-    "address": "Appar Street , PRR nagar , Rajapalayam"
-  },
-  "educationDetails": [
-    {
-      "collegeName": "SRM INSTITUTE OF SCIENCE AND TECHNOLOGY",
-      "degree": "Btech",
-      "specialization": "ELECTRONICS AND COMMUNICATION ENGINEERING",
-      "year": "2019",
-      "graduate": "YES"
+[
+  {
+    "employeeInfo": {
+      "employeeId": "",
+      "employeeName": "Surendar R",
+      "employeeRole": "Software Developer",
+      "jobTitle": "Software Developer",
+      "dateOfJoining": "2021-02-10",
+      "employeeEmail": "surendar@zagaopensource.com",
+      "password": "",
+      "department": "Software Development",
+      "reportingManager": "Giridharan",
+      "employeeStatus": "Engaged",
+      "overallExperience": 4,
+      "projectAssignmentStatus": true
+    },
+    "personalInfo": {
+      "employeeId": "",
+      "employeeName": "",
+      "gender": "Male",
+      "nationality": "Indian",
+      "maritalStatus": "Single",
+      "language": ["English", "Tamil"],
+      "dateOfBirth": "1998-02-03",
+      "bloodGroup": "A1 +",
+      "personalEmail": "surendar@gmail.com",
+      "personalPhone": "7708521154",
+      "emergencyPhone": "6380057418",
+      "address": "617/5, Poornnammal Colony 3rd Street, Kadalaiyur road, Kovilpatti"
+    },
+    "educationDetails": [
+      {
+        "collegeName": "Sri Ramakrishna College of Engineering",
+        "degree": "BE",
+        "specialization": "Civil Engineering",
+        "year": "2019",
+        "graduate": "YES"
+      }
+    ],
+    "jobHistoryDetails": [
+      {
+        "companyName": "zagaopensource",
+        "startDate": "2021-02-10",
+        "endDate": "",
+        "field": "IT",
+        "experience": "2"
+      },
+      {
+        "companyName": "Infosys",
+        "startDate": "2019-05-01",
+        "endDate": "2021-01-01",
+        "field": "IT",
+        "experience": "2"
+      }
+    ],
+    "skills": {
+      "employeeId": "",
+      "employeeName": "",
+      "skillsName": [""],
+      "toolsName": [""],
+      "yearsOfExperience": "4",
+      "compentencyLevel": "Senior"
     }
-  ],
-  "jobHistoryDetails": [
-    {
-      "companyName": "zagaopensource",
-      "startDate": "2021-11-04",
-      "endDate": "",
-      "field": "IT",
-      "experience": "1"
+  },
+  {
+    "employeeInfo": {
+      "employeeId": "",
+      "employeeName": "Hariharan P",
+      "employeeRole": "Software Developer",
+      "jobTitle": "Software Developer",
+      "dateOfJoining": "2021-02-10",
+      "employeeEmail": "hariharan@zagaopensource.com",
+      "password": "",
+      "department": "Software Development",
+      "reportingManager": "Giridharan",
+      "employeeStatus": "Engaged",
+      "overallExperience": 2,
+      "projectAssignmentStatus": true
+    },
+    "personalInfo": {
+      "employeeId": "",
+      "employeeName": "",
+      "gender": "Male",
+      "nationality": "Indian",
+      "maritalStatus": "Single",
+      "language": ["English", "Tamil"],
+      "dateOfBirth": "2000-10-20",
+      "bloodGroup": "B+",
+      "personalEmail": "hariharan212k@gmail.com",
+      "personalPhone": "9944487742",
+      "emergencyPhone": "",
+      "address": "134G 5/12 Narayanasamy nagar, Loyal mill colony, Kovilpatti"
+    },
+    "educationDetails": [
+      {
+        "collegeName": "KARPAGAM COLLEGE OF ENGINEERING",
+        "degree": "BACHELOR OF ENGINEERING",
+        "specialization": "AUTOMOBILE ENGINEERING",
+        "year": "2022",
+        "graduate": "YES"
+      }
+    ],
+    "jobHistoryDetails": [
+      {
+        "companyName": "zaga open source private limited",
+        "startDate": "2021-02-10",
+        "endDate": "Current",
+        "field": "IT",
+        "experience": "Current"
+      }
+    ],
+    "skills": {
+      "employeeId": "",
+      "employeeName": "",
+      "skillsName": [""],
+      "toolsName": [""],
+      "yearsOfExperience": "1",
+      "compentencyLevel": "Intermediate"
     }
-  ],
-  "skills": {
-    "employeeId": "",
-    "employeeName": "",
-    "skillsName": [""],
-    "toolsName": [""],
-    "yearsOfExperience": "1",
-    "compentencyLevel": "Intermediate"
+  },
+  {
+    "employeeInfo": {
+      "employeeId": "",
+      "employeeName": "Mukesh Kumar S",
+      "employeeRole": "Software Developer",
+      "jobTitle": "Software Developer",
+      "dateOfJoining": "string",
+      "employeeEmail": "mukesh@zagaopensource.com",
+      "password": "",
+      "department": "Software Development",
+      "reportingManager": "Sharanya Shekar",
+      "employeeStatus": "Engaged",
+      "overallExperience": 1,
+      "projectAssignmentStatus": true
+    },
+    "personalInfo": {
+      "employeeId": "",
+      "employeeName": "",
+      "gender": "Male",
+      "nationality": "Indian",
+      "maritalStatus": "Single",
+      "language": ["English", "Tamil"],
+      "dateOfBirth": "1999-06-13",
+      "bloodGroup": "o +",
+      "personalEmail": "mugicoder13@gmail.com",
+      "personalPhone": "8754640676",
+      "emergencyPhone": "8903722205",
+      "address": "295/3 East Street, South Thittankulam, Kovilpatti"
+    },
+    "educationDetails": [
+      {
+        "collegeName": "SHREE VENKATESHWARA HI-TECH ENGINEERING COLLEGE",
+        "degree": "BE",
+        "specialization": "COMPUTER SCIENCE AND ENGINEERING",
+        "year": "2020",
+        "graduate": "YES"
+      }
+    ],
+    "jobHistoryDetails": [
+      {
+        "companyName": "zagaopensource",
+        "startDate": "2021-03-01",
+        "endDate": "",
+        "field": "IT",
+        "experience": "1"
+      }
+    ],
+    "skills": {
+      "employeeId": "",
+      "employeeName": "",
+      "skillsName": [""],
+      "toolsName": [""],
+      "yearsOfExperience": "2",
+      "compentencyLevel": "Intermediate"
+    }
+  },
+  {
+    "employeeInfo": {
+      "employeeId": "",
+      "employeeName": "Jeyaraghul R",
+      "employeeRole": "Software Developer",
+      "jobTitle": "Software Developer",
+      "dateOfJoining": "string",
+      "employeeEmail": "jeyaraghul@zagaopensource.com",
+      "password": "",
+      "department": "Software Development",
+      "reportingManager": "Sharanya Shekar",
+      "employeeStatus": "Engaged",
+      "overallExperience": 1,
+      "projectAssignmentStatus": true
+    },
+    "personalInfo": {
+      "employeeId": "",
+      "employeeName": "",
+      "gender": "Male",
+      "nationality": "Indian",
+      "maritalStatus": "Single",
+      "language": ["English", "Tamil"],
+      "dateOfBirth": "1997-03-06",
+      "bloodGroup": "o +",
+      "personalEmail": "jeyaraghul@gmail.com",
+      "personalPhone": "9894473885",
+      "emergencyPhone": "9894473885",
+      "address": "Appar Street , PRR nagar , Rajapalayam"
+    },
+    "educationDetails": [
+      {
+        "collegeName": "SRM INSTITUTE OF SCIENCE AND TECHNOLOGY",
+        "degree": "Btech",
+        "specialization": "ELECTRONICS AND COMMUNICATION ENGINEERING",
+        "year": "2019",
+        "graduate": "YES"
+      }
+    ],
+    "jobHistoryDetails": [
+      {
+        "companyName": "zagaopensource",
+        "startDate": "2021-11-04",
+        "endDate": "",
+        "field": "IT",
+        "experience": "1"
+      }
+    ],
+    "skills": {
+      "employeeId": "",
+      "employeeName": "",
+      "skillsName": [""],
+      "toolsName": [""],
+      "yearsOfExperience": "1",
+      "compentencyLevel": "Intermediate"
+    }
+  },
+  {
+    "employeeInfo": {
+      "employeeId": "",
+      "employeeName": "Anushiya",
+      "employeeRole": "Software Developer",
+      "jobTitle": "Software Developer",
+      "dateOfJoining": "string",
+      "employeeEmail": "anushiya@zagaopensource.com",
+      "password": "",
+      "department": "Software Development",
+      "reportingManager": "Giridharan",
+      "employeeStatus": "Engaged",
+      "overallExperience": 1.2,
+      "projectAssignmentStatus": true
+    },
+    "personalInfo": {
+      "employeeId": "",
+      "employeeName": "",
+      "gender": "Female",
+      "nationality": "Indian",
+      "maritalStatus": "Single",
+      "language": ["English", "Tamil", "Telugu"],
+      "dateOfBirth": "1999-05-25",
+      "bloodGroup": "A1B +ve",
+      "personalEmail": "anushiyadhamu@gmail.com",
+      "personalPhone": "9500934741",
+      "emergencyPhone": "9500934741",
+      "address": "3/31,Middle Street,Idaiseval,Kovilpatti"
+    },
+    "educationDetails": [
+      {
+        "collegeName": "GVN COLLEGE OF Arts and Science",
+        "degree": "BACHELOR OF SCIENCE",
+        "specialization": "COMPUTER SCIENCE",
+        "year": "2019",
+        "graduate": "YES"
+      },
+      {
+        "collegeName": "SRNM COLLEGE OF Arts and Science",
+        "degree": "MASTER OF SCIENCE",
+        "specialization": "COMPUTER SCIENCE",
+        "year": "2021",
+        "graduate": "YES"
+      }
+    ],
+    "jobHistoryDetails": [
+      {
+        "companyName": "zaga",
+        "startDate": "01/03/2022",
+        "endDate": "",
+        "field": "Development",
+        "experience": "1"
+      }
+    ],
+    "skills": {
+      "employeeId": "",
+      "employeeName": "",
+      "skillsName": ["java", "Anugular"],
+      "toolsName": [""],
+      "yearsOfExperience": "1",
+      "compentencyLevel": "Intermediate"
+    }
+  },
+  {
+    "employeeInfo": {
+      "employeeId": "",
+      "employeeName": "Pavithra P",
+      "employeeRole": "Software Developer",
+      "jobTitle": "Software Developer",
+      "dateOfJoining": "string",
+      "employeeEmail": "Pavithra@zagaopensource.com",
+      "password": "",
+      "department": "Software Development",
+      "reportingManager": "Sharanya Shekar",
+      "employeeStatus": "Engaged",
+      "overallExperience": 3,
+      "projectAssignmentStatus": true
+    },
+    "personalInfo": {
+      "employeeId": "",
+      "employeeName": "",
+      "gender": "Female",
+      "nationality": "Indian",
+      "maritalStatus": "Single",
+      "language": ["English", "Tamil"],
+      "dateOfBirth": "1995-05-20",
+      "bloodGroup": "o +",
+      "personalEmail": "pavipavi491@gmail.com",
+      "personalPhone": "9944822686",
+      "emergencyPhone": "9944822686",
+      "address": "No-8-Sankaralingapuram , 1st-East Street  , Kovilpatti"
+    },
+    "educationDetails": [
+      {
+        "collegeName": "Hindusthan college of Engineering and Technology",
+        "degree": "MCA",
+        "specialization": "Computer Application",
+        "year": "2017",
+        "graduate": "YES"
+      }
+    ],
+    "educationDetails": [
+      {
+        "collegeName": "G.Venkataswamy Naidu College of Arts and Science",
+        "degree": "B.Sc",
+        "specialization": "Computer Science",
+        "year": "2015",
+        "graduate": "YES"
+      }
+    ],
+    "jobHistoryDetails": [
+      {
+        "companyName": "zagaopensource",
+        "startDate": "2023-03-01",
+        "endDate": "",
+        "field": "IT",
+        "experience": "1 month"
+      }
+    ],
+    "skills": {
+      "employeeId": "",
+      "employeeName": "",
+      "skillsName": [""],
+      "toolsName": [""],
+      "yearsOfExperience": "1 month",
+      "compentencyLevel": "Intermediate"
+    }
+  },
+  {
+    "employeeInfo": {
+      "employeeId": "",
+      "employeeName": "Sharanya S",
+      "employeeRole": "Software Developer",
+      "jobTitle": "Software Developer",
+      "dateOfJoining": "2022-03-21",
+      "employeeEmail": "sharanya@zagaopensource.com",
+      "password": "",
+      "department": "Software Development",
+      "reportingManager": "Giridharan",
+      "employeeStatus": "Not Engaged",
+      "overallExperience": 1,
+      "projectAssignmentStatus": false
+    },
+    "personalInfo": {
+      "employeeId": "",
+      "employeeName": "",
+      "gender": "Female",
+      "nationality": "Indian",
+      "maritalStatus": "Single",
+      "language": ["English", "Tamil", "French", "Hindi"],
+      "dateOfBirth": "1996-06-07",
+      "bloodGroup": "o +",
+      "personalEmail": "sharanya.june7@gmail.com",
+      "personalPhone": "6385311793",
+      "emergencyPhone": "9443073341",
+      "address": "5A/74D1, Muthu Nagar, East First Street , Elambalur road , Perambalur"
+    },
+    "educationDetails": [
+      {
+        "collegeName": "EPITA",
+        "degree": "MSc",
+        "specialization": "Computer Security",
+        "year": "2023",
+        "graduate": "YES"
+      },
+      {
+        "collegeName": "Saranathan College of Engineering",
+        "degree": "BE",
+        "specialization": "Electronics and Communication Engineering",
+        "year": "2018",
+        "graduate": "YES"
+      }
+    ],
+    "jobHistoryDetails": [
+      {
+        "companyName": "zagaopensource",
+        "startDate": "2022-03-21",
+        "endDate": "",
+        "field": "IT",
+        "experience": "1"
+      }
+    ],
+    "skills": {
+      "employeeId": "",
+      "employeeName": "",
+      "skillsName": [""],
+      "toolsName": [""],
+      "yearsOfExperience": "1",
+      "compentencyLevel": "Intermediate"
+    }
+  },
+  {
+    "employeeInfo": {
+      "employeeId": "",
+      "employeeName": "Ajay Krishnan T",
+      "employeeRole": "Software Developer",
+      "jobTitle": "Software Developer",
+      "dateOfJoining": "string",
+      "employeeEmail": "ajay@zagaopensource.com",
+      "password": "",
+      "department": "Software Development",
+      "reportingManager": "Sharanya Shekar",
+      "employeeStatus": "Engaged",
+      "overallExperience": 1.7,
+      "projectAssignmentStatus": true
+    },
+    "personalInfo": {
+      "employeeId": "",
+      "employeeName": "",
+      "gender": "Male",
+      "nationality": "Indian",
+      "maritalStatus": "Single",
+      "language": ["English", "Tamil", "Telugu"],
+      "dateOfBirth": "1999-02-20",
+      "bloodGroup": "o +",
+      "personalEmail": "ajaykrishnan114cs@gmail.com",
+      "personalPhone": "8778105635",
+      "emergencyPhone": "7010580406",
+      "address": "753c 3d/6 Rajiv nagar Eb colony, Kovilpatti"
+    },
+    "educationDetails": [
+      {
+        "collegeName": "ARJUN COLLEGE OF TECHNOLOGY",
+        "degree": "BACHELOR OF ENGINEERING",
+        "specialization": "COMPUTER SCIENCE ENGINEERING",
+        "year": "2020",
+        "graduate": "YES"
+      }
+    ],
+    "jobHistoryDetails": [
+      {
+        "companyName": "Aaludra Technologies",
+        "startDate": "2021-09-06",
+        "endDate": "2022-10-1",
+        "field": "IT",
+        "experience": "1"
+      }
+    ],
+    "skills": {
+      "employeeId": "",
+      "employeeName": "",
+      "skillsName": [""],
+      "toolsName": [""],
+      "yearsOfExperience": "1",
+      "compentencyLevel": "Intermediate"
+    }
+  },
+
+  {
+    "employeeInfo": {
+      "employeeId": "",
+      "employeeName": "Ragamalya S",
+      "employeeRole": "Software Developer",
+      "jobTitle": "Software Developer",
+      "dateOfJoining": "string",
+      "employeeEmail": "ragamalya@zagaopensource.com",
+      "password": "",
+      "department": "Software Development",
+      "reportingManager": "Sharanya Shekar",
+      "employeeStatus": "Engaged",
+      "overallExperience": 1,
+      "projectAssignmentStatus": false
+    },
+    "personalInfo": {
+      "employeeId": "",
+      "employeeName": "",
+      "gender": "Female",
+      "nationality": "Indian",
+      "maritalStatus": "Single",
+      "language": ["English", "Tamil"],
+      "dateOfBirth": "2001-07-27",
+      "bloodGroup": "o +",
+      "personalEmail": "ragamalya295@gmail.com",
+      "personalPhone": "9444639071",
+      "emergencyPhone": "9444639071",
+      "address": "Middle Street, South Thittankulam, Kovilpatti"
+    },
+    "educationDetails": [
+      {
+        "collegeName": "SHREE VENKATESHWARA HI TECH ENGINEERING COLLEGE",
+        "degree": "BACHELOR OF ENGINEERING",
+        "specialization": "COMPUTER SCIENCE AND ENGINEERING",
+        "year": "2022",
+        "graduate": "YES"
+      }
+    ],
+    "jobHistoryDetails": [
+      {
+        "companyName": "zagaopensource",
+        "startDate": "2022-11-01",
+        "endDate": "",
+        "field": "IT",
+        "experience": "1"
+      }
+    ],
+    "skills": {
+      "employeeId": "",
+      "employeeName": "",
+      "skillsName": [""],
+      "toolsName": [""],
+      "yearsOfExperience": "1",
+      "compentencyLevel": "Intermediate"
+    }
+  },
+  {
+    "employeeInfo": {
+      "employeeId": "",
+      "employeeName": "BALASUBRAMANIAN A",
+      "employeeRole": "Software Developer",
+      "jobTitle": "Software Developer",
+      "dateOfJoining": "18-01-2023",
+      "employeeEmail": "a.bala101@gmail.com.com",
+      "password": "example",
+      "department": "Software development",
+      "reportingManager": "Sharanya Shekar",
+      "employeeStatus": "Engaged",
+      "overallExperience": 3,
+      "projectAssignmentStatus": true
+    },
+    "personalInfo": {
+      "employeeId": "",
+      "employeeName": "BALASUBRAMANIAN A",
+      "gender": "Male",
+      "nationality": "Indian",
+      "maritalStatus": "Married",
+      "language": ["English", "Tamil"],
+      "dateOfBirth": "1990-09-25",
+      "bloodGroup": "o +",
+      "personalEmail": "a.bala101@gmail.com.com",
+      "personalPhone": "9952245738",
+      "emergencyPhone": "9597482948",
+      "address": "32 , middle st,k.sundareswarapuram,vilathikulam"
+    },
+    "educationDetails": [
+      {
+        "collegeName": "RVS college of Engineering ,Dindugal",
+        "degree": "Btech",
+        "specialization": "Mechanical",
+        "year": "2020",
+        "graduate": "YES"
+      }
+    ],
+    "jobHistoryDetails": [
+      {
+        "companyName": "zagaopensource",
+        "startDate": "2023-01-18",
+        "endDate": "",
+        "field": "IT",
+        "experience": "3"
+      }
+    ],
+    "skills": {
+      "employeeId": "",
+      "employeeName": "",
+      "skillsName": ["java,SpringBoot,Quarkus,RestFull,Microservices,Maven"],
+      "toolsName": ["gitHub,IDE-VScode"],
+      "yearsOfExperience": "3",
+      "compentencyLevel": "Intermediate"
+    }
+  },
+  {
+    "employeeInfo": {
+      "employeeId": "",
+      "employeeName": "Pratheeba R",
+      "employeeRole": "Software Developer",
+      "jobTitle": "Software Developer",
+      "dateOfJoining": "string",
+      "employeeEmail": "pratheeba@zagaopensource.com",
+      "password": "",
+      "department": "Software Development",
+      "reportingManager": "Sharanya Shekar",
+      "employeeStatus": "Engaged",
+      "overallExperience": 1,
+      "projectAssignmentStatus": true
+    },
+    "personalInfo": {
+      "employeeId": "",
+      "employeeName": "",
+      "gender": "FeMale",
+      "nationality": "Indian",
+      "maritalStatus": "Single",
+      "language": ["English", "Tamil"],
+      "dateOfBirth": "11-05-2001",
+      "bloodGroup": "A1B +",
+      "personalEmail": "pratheebaravindran@gmail.com",
+      "personalPhone": "6379072652",
+      "emergencyPhone": "6379072652",
+      "address": "loyal mill , kovilpatti"
+    },
+    "educationDetails": [
+      {
+        "collegeName": "Sri Krishna college of engineering and technology",
+        "degree": "BE",
+        "specialization": "ELECTRONICS AND COMMUNICATION ENGINEERING",
+        "year": "2022",
+        "graduate": "YES"
+      }
+    ],
+    "jobHistoryDetails": [
+      {
+        "companyName": "zagaopensource",
+        "startDate": "2022-12-12",
+        "endDate": "",
+        "field": "IT",
+        "experience": "4"
+      }
+    ],
+    "skills": {
+      "employeeId": "",
+      "employeeName": "",
+      "skillsName": [""],
+      "toolsName": [""],
+      "yearsOfExperience": "1",
+      "compentencyLevel": "Intermediate"
+    }
   }
-}
+]
