@@ -1,86 +1,131 @@
-// package com.zaga.employee_onboarding.service;
+package com.zaga.employee_onboarding.service;
 
-// import static org.junit.jupiter.api.Assertions.assertEquals;
-// import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.when;
 
-// import java.io.IOException;
-// import java.util.ArrayList;
-// import java.util.Arrays;
-// import java.util.List;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
-// import org.bson.types.Binary;
-// import org.junit.jupiter.api.Test;
-// import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.boot.test.context.SpringBootTest;
-// import org.springframework.mock.web.MockMultipartFile;
-// import org.springframework.web.multipart.MultipartFile;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-// import com.zaga.employee_onboarding.entity.EmployeeInfo;
-// import com.zaga.employee_onboarding.entity.dto.EducationDetailsDTO;
-// import com.zaga.employee_onboarding.entity.dto.JobHistoryDTO;
-// import com.zaga.employee_onboarding.repository.EmployeeInfoRepo;
-// import com.zaga.employee_onboarding.service.EmployeeInfoService;
+import com.zaga.employee_onboarding.entity.EmployeeInfo;
+import com.zaga.employee_onboarding.entity.ListOfEmployeesDTO;
+import com.zaga.employee_onboarding.repository.EmployeeInfoRepo;
+import com.zaga.employee_onboarding.serviceimpl.EmployeeInfoServiceimpl;
 
-// @SpringBootTest
-// public class EmployeeInfoServiceimplTest {
+@ExtendWith(MockitoExtension.class)
+public class EmployeeInfoServiceimplTest {
 
-//     @Autowired
-//     private EmployeeInfoService employeeInfoService;
+    @Mock
+    EmployeeInfoRepo employeeInfoRepo;
 
-//     @Autowired
-//     private EmployeeInfoRepo employeeInfoRepo;
+    @InjectMocks
+    EmployeeInfoServiceimpl employeeInfoServiceimpl;
 
-//     @Test
-//     public void testAddDetails() throws IOException {
-//         List<JobHistoryDTO> jobHistoryDetails = Arrays.asList(
-//             new JobHistoryDTO("Company A", "Developer", "2020-01-01", "2022-01-01", "String"),
-//             new JobHistoryDTO("Company B", "Senior Developer", "2018-01-01", "2020-01-01", "String")
-//         );
-    
-//         List<EducationDetailsDTO> educationDetails = Arrays.asList(
-//             new EducationDetailsDTO("String", "String", "String", "String", "String"),
-//             new EducationDetailsDTO("String", "String", "String", "String", "String")
-//         );
-    
-//         List<String> skillsName = new ArrayList<>();
-//             skillsName.add("Java");
-//             skillsName.add("SpringBoot");
-    
-//         List<String> toolsName = new ArrayList<>();
-//             toolsName.add("VS Code");
-//             toolsName.add("Postman");
-       
-//         EmployeeInfo employeeInfo = new EmployeeInfo("2", "String", "String", "String", "String", "string", "String", "String", "String", "String", 2, true, "String", "String", "String", "String", "String", "String", "String", "String", "String", "String", jobHistoryDetails, educationDetails, skillsName, toolsName, "String", "String", "BR3_My_Personal_Stress_Plan.pdf", new byte[] { 1, 2, 3 }, "String", "String", "String", "String", "String", "String", "String");
+    public EmployeeInfo sharanya;
+    public EmployeeInfo pavithra;
 
-//         EmployeeInfo result = employeeInfoService.addDetails(employeeInfo);
+    @BeforeEach
+    void init() {
+        sharanya = new EmployeeInfo();
+        sharanya.setEmployeeId("1");
+        sharanya.setEmployeeName("Sharanya");
+        sharanya.setEmployeeRole("Employee");
+        sharanya.setJobTitle("Software Engineer");
+        sharanya.setDateOfJoining("2022-11-01");
+        sharanya.setEmployeeEmail("sharanya@gmail.com");
+        sharanya.setPassword("1234");
+        sharanya.setDepartment("IT");
+        sharanya.setReportingManager("Giri");
+        sharanya.setEmployeeStatus("Active");
+        sharanya.setOverallExperience(1);
+        sharanya.setProjectAssignmentStatus(true);
 
-//         assertNotNull(result.getEmployeeId());
-//         assertEquals(result.getEmployeeId(), employeeInfo.getEmployeeId());
-//         assertEquals(result.getEmployeeName(), employeeInfo.getEmployeeName());
+        pavithra = new EmployeeInfo();
+        pavithra.setEmployeeId("2");
+        pavithra.setEmployeeName("Pavithra");
+        pavithra.setEmployeeRole("Employee");
+        pavithra.setJobTitle("Software Engineer");
+        pavithra.setDateOfJoining("2022-11-01");
+        pavithra.setEmployeeEmail("pavithra@gmail.com");
+        pavithra.setPassword("1234");
+        pavithra.setDepartment("IT");
+        pavithra.setReportingManager("Giri");
+        pavithra.setEmployeeStatus("Active");
+        pavithra.setOverallExperience(1);
+        pavithra.setProjectAssignmentStatus(true);
 
-//         employeeInfoRepo.deleteById(result.getEmployeeId());
-//     }
+    }
 
-//     @Test
-//     public void testUpdateEmpDocuments() throws IOException {
-//         // create test employee info
-//         EmployeeInfo employeeInfo = new EmployeeInfo();
-//         employeeInfo.setEmployeeId("2");
-//         EmployeeInfo savedEmployeeInfo = employeeInfoRepo.save(employeeInfo);
+    @Test
+    void addDetails() throws IOException {
+        when(employeeInfoRepo.save(any(EmployeeInfo.class))).thenReturn(sharanya);
 
-//         // create test file
-//         byte[] testData = "test data".getBytes();
-//         MultipartFile file = new MockMultipartFile("BR3_My_Personal_Stress_Plan.pdf", testData);
+        EmployeeInfo employeeInfo = employeeInfoServiceimpl.addDetails(sharanya);
 
-//         // update employee info with test file
-//         String result = employeeInfoService.updateEmpDocuments(file);
-//         assertEquals(result, "success");
+        assertNotNull(employeeInfo);
+        assertThat(employeeInfo.getEmployeeId()).isEqualTo("1");
+    }
 
-//         // verify updated employee info
-//         EmployeeInfo updatedEmployeeInfo = employeeInfoRepo.findById(savedEmployeeInfo.getEmployeeId()).get();
-//         assertEquals(updatedEmployeeInfo.getFileName(), "BR3_My_Personal_Stress_Plan.pdf");
-//         // assertEquals(new String(updatedEmployeeInfo.getFile().getData()), "test data");
+    @Test
+    void getAllDetails() {
+        List<EmployeeInfo> employeeInfo = new ArrayList<>();
+        employeeInfo.add(sharanya);
+        employeeInfo.add(pavithra);
 
-//         employeeInfoRepo.deleteById(savedEmployeeInfo.getEmployeeId());
-//     }
-// }
+        when(employeeInfoRepo.findAll()).thenReturn(employeeInfo);
+
+        List<EmployeeInfo> employeeInfoList = employeeInfoServiceimpl.getAllDetails();
+
+        assertEquals(2, employeeInfoList.size());
+        assertNotNull(employeeInfoList);
+    }
+
+    @Test
+    void getListOfEmployees() {
+        List<EmployeeInfo> employeeInfo = new ArrayList<>();
+        employeeInfo.add(sharanya);
+        employeeInfo.add(pavithra);
+
+        when(employeeInfoRepo.findAll()).thenReturn(employeeInfo);
+
+        List<ListOfEmployeesDTO> employeeInfoList = employeeInfoServiceimpl.getListOfEmployees();
+
+        assertEquals(2, employeeInfoList.size());
+        assertNotNull(employeeInfoList);
+    }
+
+    @Test
+    void getDetailsById() {
+        when(employeeInfoRepo.findById(anyString())).thenReturn(Optional.of(sharanya));
+
+        EmployeeInfo employeeInfo = employeeInfoServiceimpl.getDetailsById(sharanya.getEmployeeId());
+
+        assertNotNull(employeeInfo);
+        assertThat(employeeInfo.getEmployeeId()).isEqualTo("1");
+    }
+
+    @Test
+    void updateDetails() {
+        when(employeeInfoRepo.findById(anyString())).thenReturn(Optional.of(sharanya));
+
+        when(employeeInfoRepo.save(any(EmployeeInfo.class))).thenReturn(sharanya);
+        sharanya.setPassword("12345");
+        EmployeeInfo existingInfo = employeeInfoServiceimpl.updateDetails(sharanya.getEmployeeId(), sharanya);
+
+        assertNotNull(existingInfo);
+        assertEquals("12345", sharanya.getPassword());
+    }
+
+}
