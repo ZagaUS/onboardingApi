@@ -50,7 +50,7 @@ public class DayOffController {
     }
 
     @PutMapping("/updateDayOff")
-    public ResponseEntity<DayOff> updateDayOff(@PathVariable String employeeId, @RequestBody DayOff dayOff) {
+    public ResponseEntity<DayOff> updateDayOff(String employeeId, @RequestBody DayOff dayOff) {
         try {
             DayOff updateDayOff = dayOffService.updateDayOff(employeeId, dayOff);
             return ResponseEntity.ok(updateDayOff);
