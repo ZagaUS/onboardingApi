@@ -13,6 +13,6 @@ import lombok.NoArgsConstructor;
 public class DocumentCollection {
 
     public String fileName;
-    public byte[] file;
+    public byte[] fileContent;
 
 }

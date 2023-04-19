@@ -5,6 +5,6 @@ import org.springframework.stereotype.Service;
 @Service
 public interface SequenceGeneratorService {
     
-    public long getNextSequence(String sequenceName);
+    public String getNextSequence(String sequenceName);
 
 }

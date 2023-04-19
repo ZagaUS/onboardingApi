@@ -11,19 +11,19 @@ import org.springframework.web.bind.annotation.RestController;
 import com.zaga.employee_onboarding.entity.EducationDetails;
 import com.zaga.employee_onboarding.service.EducationDetailsService;
 
-@RestController("/educationDetails")
+@RestController
 public class EducationDetailController {
 
     @Autowired
     EducationDetailsService service;
 
-    @PostMapping("/create")
+    @PostMapping("/educationDetails/create")
     public ResponseEntity<EducationDetails> createEducationDetails(@RequestBody EducationDetails educationDetails) {
         EducationDetails createEducationDetails = service.createEducationalInfo(educationDetails);
         return ResponseEntity.ok(createEducationDetails);
     }
 
-    @GetMapping("/getEducationDetailsById/{employeeId}")
+    @GetMapping("/getEducationDetailsById")
     public ResponseEntity<EducationDetails> getEducationDetailsById(String employeeId) {
         try {
             EducationDetails getEducationDetailsById = service.getEducationalnfoById(employeeId);
@@ -33,11 +33,13 @@ public class EducationDetailController {
         }
     }
 
-    @PutMapping("/updateEducationDetails/{employeeId}")
-    public ResponseEntity<EducationDetails> updateEducationDetails(String employeeId,
-            EducationDetails EducationDetails) {
+    @PutMapping("/updateEducationDetails")
+    public ResponseEntity<EducationDetails> updateEducationDetails(@RequestBody EducationDetails educationDetails) {
+        System.out.println(educationDetails);
+        String employeeId = educationDetails.getEmployeeId();
         try {
-            EducationDetails updateEducationDetails = service.updateEducationalInfo(employeeId, EducationDetails);
+            System.out.println(employeeId);
+            EducationDetails updateEducationDetails = service.updateEducationalInfo(employeeId, educationDetails);
             return ResponseEntity.ok(updateEducationDetails);
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();

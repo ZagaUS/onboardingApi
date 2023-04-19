@@ -1,0 +1,56 @@
+{
+  "employeeInfo": {
+    "employeeId": "",
+    "employeeName": "Jeyaraghul R",
+    "employeeRole": "Software Developer",
+    "jobTitle": "Software Developer",
+    "dateOfJoining": "string",
+    "employeeEmail": "jeyaraghul@zagaopensource.com",
+    "password": "",
+    "department": "Software Development",
+    "reportingManager": "Sharanya Shekar",
+    "employeeStatus": "Engaged",
+    "overallExperience": 1,
+    "projectAssignmentStatus": true
+  },
+  "personalInfo": {
+    "employeeId": "",
+    "employeeName": "",
+    "gender": "Male",
+    "nationality": "Indian",
+    "maritalStatus": "Single",
+    "language": ["English", "Tamil"],
+    "dateOfBirth": "1997-03-06",
+    "bloodGroup": "o +",
+    "personalEmail": "jeyaraghul@gmail.com",
+    "personalPhone": "9894473885",
+    "emergencyPhone": "9894473885",
+    "address": "Appar Street , PRR nagar , Rajapalayam"
+  },
+  "educationDetails": [
+    {
+      "collegeName": "SRM INSTITUTE OF SCIENCE AND TECHNOLOGY",
+      "degree": "Btech",
+      "specialization": "ELECTRONICS AND COMMUNICATION ENGINEERING",
+      "year": "2019",
+      "graduate": "YES"
+    }
+  ],
+  "jobHistoryDetails": [
+    {
+      "companyName": "zagaopensource",
+      "startDate": "2021-11-04",
+      "endDate": "",
+      "field": "IT",
+      "experience": "1"
+    }
+  ],
+  "skills": {
+    "employeeId": "",
+    "employeeName": "",
+    "skillsName": [""],
+    "toolsName": [""],
+    "yearsOfExperience": "1",
+    "compentencyLevel": "Intermediate"
+  }
+}
