@@ -9,15 +9,18 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.zaga.employee_onboarding.entity.dto.EducationDetailsDTO;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIgnoreProperties("{id}")
+@Builder
+@JsonIgnoreProperties({"id"})
 @Document(collection = "EducationDetails")
 public class EducationDetails {
+    
 
     public ObjectId id;
     public String employeeId;

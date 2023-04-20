@@ -96,7 +96,7 @@ public class JobHistoryApiTest {
     @Test
     @Order(2)
     void getJobHistoryByIdTest() {
-        RestAssured.given().baseUri("http://localhost")
+        RestAssured.given().baseUri("")
                 .port(port)
                 .contentType(ContentType.JSON)
                 .queryParam("employeeId", responsebody.employeeId)
