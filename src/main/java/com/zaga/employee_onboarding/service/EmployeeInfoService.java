@@ -18,7 +18,7 @@ public interface EmployeeInfoService {
 
     public List<ListOfEmployeesDTO> getListOfEmployees();
 
-    // public ListOfEmployeesDTO getListOfEmployeesById(String employeeId);
+     //public ListOfEmployeesDTO getListOfEmployeesById(String employeeId);
 
     public EmployeeInfo getDetailsById(String employeeId);
 
