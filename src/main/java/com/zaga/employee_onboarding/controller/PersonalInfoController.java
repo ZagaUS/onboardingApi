@@ -24,8 +24,8 @@ public class PersonalInfoController {
         return ResponseEntity.ok(createPersonalInfo);
     }
 
-    @GetMapping("/getPersonalnfo")
-    public ResponseEntity<List<PersonalInfo>> getPersonalnfo() {
+    @GetMapping("/getPersonalInfo")
+    public ResponseEntity<List<PersonalInfo>> getPersonalInfo() {
         try {
             List<PersonalInfo> getPersonalInfo = service.getPersonalnfo();
             return ResponseEntity.ok(getPersonalInfo);
