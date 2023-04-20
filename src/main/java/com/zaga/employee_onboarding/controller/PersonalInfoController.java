@@ -24,15 +24,15 @@ public class PersonalInfoController {
         return ResponseEntity.ok(createPersonalInfo);
     }
 
-    @GetMapping("/getPersonalInfo")
-    public ResponseEntity<List<PersonalInfo>> getPersonalInfo() {
-        try {
-            List<PersonalInfo> getPersonalInfo = service.getPersonalInfo();
-            return ResponseEntity.ok(getPersonalInfo);
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
-        }
-    }
+    // @GetMapping("/getPersonalInfo")
+    // public ResponseEntity<List<PersonalInfo>> getPersonalInfo() {
+    //     try {
+    //         List<PersonalInfo> getPersonalInfo = service.getPersonalInfo();
+    //         return ResponseEntity.ok(getPersonalInfo);
+    //     } catch (Exception e) {
+    //         return ResponseEntity.badRequest().build();
+    //     }
+    // }
 
     @GetMapping("/getPersonalInfoById")
     public ResponseEntity<PersonalInfo> getPersonalInfoById(String employeeId) {
