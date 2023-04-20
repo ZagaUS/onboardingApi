@@ -11,7 +11,7 @@ public interface PersonalInfoService  {
     
     public PersonalInfo createPersonalInfo(PersonalInfo personalInfo);
 
-    public List<PersonalInfo> getPersonalnfo();
+    public List<PersonalInfo> getPersonalInfo();
 
     public PersonalInfo getPersonalInfoById(String employeeId);
 

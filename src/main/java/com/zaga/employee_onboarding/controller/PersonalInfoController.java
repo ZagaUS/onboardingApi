@@ -24,10 +24,10 @@ public class PersonalInfoController {
         return ResponseEntity.ok(createPersonalInfo);
     }
 
-    @GetMapping("/getPersonalnfo")
-    public ResponseEntity<List<PersonalInfo>> getPersonalnfo() {
+    @GetMapping("/getPersonalInfo")
+    public ResponseEntity<List<PersonalInfo>> getPersonalInfo() {
         try {
-            List<PersonalInfo> getPersonalInfo = service.getPersonalnfo();
+            List<PersonalInfo> getPersonalInfo = service.getPersonalInfo();
             return ResponseEntity.ok(getPersonalInfo);
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
