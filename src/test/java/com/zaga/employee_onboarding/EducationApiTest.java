@@ -1,4 +1,4 @@
-package com.zaga.employee_onboarding.service;
+package com.zaga.employee_onboarding;
 
 import java.util.ArrayList;
 import java.util.List;

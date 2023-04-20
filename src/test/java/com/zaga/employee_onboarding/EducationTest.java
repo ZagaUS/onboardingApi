@@ -1,4 +1,4 @@
-package com.zaga.employee_onboarding.service;
+package com.zaga.employee_onboarding;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
