@@ -8,6 +8,7 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,6 +43,8 @@ public class PersonalInfoServiceImplTest {
         anushiya.setGender("female");
         anushiya.setNationality("Indian");
         anushiya.setMaritalStatus("single");
+        List<String> languages = Arrays.asList("English", "Tamil", "Telugu");
+        anushiya.setLanguage(languages);
         // anushiya.setLanguage(["English","Tamil","Telugu"]);
         anushiya.setDateOfBirth("1999-05-25");
         anushiya.setBloodGroup("A1B +ve");
@@ -56,6 +59,8 @@ public class PersonalInfoServiceImplTest {
         pavithra.setGender("female");
         pavithra.setNationality("Indian");
         pavithra.setMaritalStatus("single");
+        List<String> language = Arrays.asList("English", "Tamil");
+        anushiya.setLanguage(language);
         // pavithra.setLanguage(["English","Tamil"]);
         pavithra.setDateOfBirth("1995-05-20");
         pavithra.setBloodGroup("o +");
