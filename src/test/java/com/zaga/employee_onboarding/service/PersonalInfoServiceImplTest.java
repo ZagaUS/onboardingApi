@@ -84,7 +84,7 @@ public class PersonalInfoServiceImplTest {
 
         when(personalInfoRepo.findAll()).thenReturn(personalInfo);
 
-        List<PersonalInfo> personalInfoList = personalInfoServiceimpl.getPersonalnfo();
+        List<PersonalInfo> personalInfoList = personalInfoServiceimpl.getPersonalInfo();
 
         assertEquals(2, personalInfoList.size());
         assertNotNull(personalInfoList);

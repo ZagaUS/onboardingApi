@@ -22,7 +22,7 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
     }
 
     @Override
-    public List<PersonalInfo> getPersonalnfo() {
+    public List<PersonalInfo> getPersonalInfo() {
         List<PersonalInfo> getPersonalInfo = personalInfoRepo.findAll();
         return getPersonalInfo;
     }
