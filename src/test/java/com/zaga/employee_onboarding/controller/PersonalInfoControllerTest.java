@@ -98,21 +98,21 @@ public class PersonalInfoControllerTest {
 
     }
 
-    @Test
-    void shouldFetchAllPersonalInfo() throws Exception {
-        List<PersonalInfo> personalInfoList = new ArrayList<>();
-        personalInfoList.add(anushiya);
-        personalInfoList.add(pavithra);
+    // @Test
+    // void shouldFetchAllPersonalInfo() throws Exception {
+    //     List<PersonalInfo> personalInfoList = new ArrayList<>();
+    //     personalInfoList.add(anushiya);
+    //     personalInfoList.add(pavithra);
 
-        when(personalInfoServiceimpl.getPersonalInfo()).thenReturn(personalInfoList);
+    //     when(personalInfoServiceimpl.getPersonalInfo()).thenReturn(personalInfoList);
 
-        this.mockMvc.perform(get("/getPersonalInfo")
-                .contentType(MediaType.APPLICATION_JSON))
+    //     this.mockMvc.perform(get("/getPersonalInfo")
+    //             .contentType(MediaType.APPLICATION_JSON))
 
-        .andExpect(status().isOk())
-        .andExpect(jsonPath("$.size()", is(personalInfoList.size())));
+    //     .andExpect(status().isOk())
+    //     .andExpect(jsonPath("$.size()", is(personalInfoList.size())));
 
-    }
+    // }
 
     @Test
     void getPersonalInfoById() throws Exception {

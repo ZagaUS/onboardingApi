@@ -62,8 +62,8 @@ public class CertificationDetailsControllerTest {
     }
 
     @Test
-    void shouldCreateTrainingDetails() throws Exception {
-        when(certificationServiceimpl.createTraining(any(CertificationDetails.class))).thenReturn(certificationCourse1);
+    void shouldCreateCertificationDetails() throws Exception {
+        when(certificationServiceimpl.createCertificationDetails(any(CertificationDetails.class))).thenReturn(certificationCourse1);
 
         mockMvc.perform(post("/certificationDetails")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -79,12 +79,12 @@ public class CertificationDetailsControllerTest {
     }
 
     @Test
-    void shouldFetchAllTrainingDetails() throws Exception {
+    void shouldFetchAllCertificationDetails() throws Exception {
         List<CertificationDetails> trainingList = new ArrayList<>();
         trainingList.add(certificationCourse1);
         trainingList.add(certificationCourse2);
 
-        when(certificationServiceimpl.getAllTraining()).thenReturn(trainingList);
+        when(certificationServiceimpl.getAllCertificationDetails()).thenReturn(trainingList);
 
         this.mockMvc.perform(get("/getAllCertificationDetails")
                 .contentType(MediaType.APPLICATION_JSON))
@@ -104,8 +104,8 @@ public class CertificationDetailsControllerTest {
     }
 
     @Test
-    void getTrainingDetailsById() throws Exception {
-        when(certificationServiceimpl.getTrainingById(anyString())).thenReturn(certificationCourse1);
+    void getCertificationDetailsById() throws Exception {
+        when(certificationServiceimpl.getCertificationDetailsById(anyString())).thenReturn(certificationCourse1);
 
         this.mockMvc.perform(get("/getCertificationDetailsById")
                 .param("employeeId", "1")
@@ -116,8 +116,8 @@ public class CertificationDetailsControllerTest {
     }
 
     @Test
-    void shouldUpdateTrainingDetails() throws Exception {
-        when(certificationServiceimpl.updateTraining(anyString(), any(CertificationDetails.class))).thenReturn(certificationCourse1);
+    void shouldUpdateCertificationDetails() throws Exception {
+        when(certificationServiceimpl.updateCertificationDetails(anyString(), any(CertificationDetails.class))).thenReturn(certificationCourse1);
 
         this.mockMvc.perform(put("/updateCertificationDetails")
                 .param("employeeId", "1")

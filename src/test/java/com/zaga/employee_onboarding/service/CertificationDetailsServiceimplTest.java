@@ -23,13 +23,13 @@ import com.zaga.employee_onboarding.repository.CertificationDetailsRepo;
 import com.zaga.employee_onboarding.serviceimpl.CertificationDetailsServiceimpl;
 
 @ExtendWith(MockitoExtension.class)
-public class TrainingServiceimplTest {
+public class CertificationDetailsServiceimplTest {
 
     @Mock
-    CertificationDetailsRepo trainingRepo;
+    CertificationDetailsRepo certificationDetailsRepo;
 
     @InjectMocks
-    CertificationDetailsServiceimpl trainingServiceimpl;
+    CertificationDetailsServiceimpl certificationDetailsServiceimpl;
 
     public CertificationDetails certificationCourse1;
     public CertificationDetails certificationCourse2;
@@ -55,48 +55,48 @@ public class TrainingServiceimplTest {
 
     @Test
     void createTraining() {
-        when(trainingRepo.save(any(CertificationDetails.class))).thenReturn(certificationCourse1);
+        when(certificationDetailsRepo.save(any(CertificationDetails.class))).thenReturn(certificationCourse1);
 
-        CertificationDetails training = trainingServiceimpl.createTraining(certificationCourse1);
+        CertificationDetails certificationDetails = certificationDetailsServiceimpl.createCertificationDetails(certificationCourse1);
 
-        assertNotNull(training);
-        assertThat(training.getEmployeeId()).isEqualTo("1");
+        assertNotNull(certificationDetails);
+        assertThat(certificationDetails.getEmployeeId()).isEqualTo("1");
     }
 
     @Test
     void getAllTraining() {
-        List<CertificationDetails> training = new ArrayList<>();
-        training.add(certificationCourse1);
-        training.add(certificationCourse2);
+        List<CertificationDetails> certificationDetails = new ArrayList<>();
+        certificationDetails.add(certificationCourse1);
+        certificationDetails.add(certificationCourse2);
 
-        when(trainingRepo.findAll()).thenReturn(training);
+        when(certificationDetailsRepo.findAll()).thenReturn(certificationDetails);
         
-        List<CertificationDetails> trainingList = trainingServiceimpl.getAllTraining();
+        List<CertificationDetails> certificationDetailsList = certificationDetailsServiceimpl.getAllCertificationDetails();
 
-        assertEquals(2, trainingList.size());
-        assertNotNull(trainingList);
+        assertEquals(2, certificationDetailsList.size());
+        assertNotNull(certificationDetailsList);
     }
 
     @Test
     void getTrainingById() {
-        when(trainingRepo.findById(anyString())).thenReturn(Optional.of(certificationCourse1));
+        when(certificationDetailsRepo.findById(anyString())).thenReturn(Optional.of(certificationCourse1));
 
-        CertificationDetails training = trainingServiceimpl.getTrainingById(certificationCourse1.getEmployeeId());
+        CertificationDetails certificationDetails = certificationDetailsServiceimpl.getCertificationDetailsById(certificationCourse1.getEmployeeId());
 
-        assertNotNull(training);
-        assertThat(training.getEmployeeId()).isEqualTo("1");
+        assertNotNull(certificationDetails);
+        assertThat(certificationDetails.getEmployeeId()).isEqualTo("1");
     }
 
     @Test
     void updateTraining() {
-        when(trainingRepo.findById(anyString())).thenReturn(Optional.of(certificationCourse1));
+        when(certificationDetailsRepo.findById(anyString())).thenReturn(Optional.of(certificationCourse1));
 
-        when(trainingRepo.save(any(CertificationDetails.class))).thenReturn(certificationCourse1);
+        when(certificationDetailsRepo.save(any(CertificationDetails.class))).thenReturn(certificationCourse1);
         certificationCourse1.setValidity("2024-01-01");
-        CertificationDetails training = trainingServiceimpl.updateTraining(certificationCourse1.getEmployeeId(), certificationCourse1);
+        CertificationDetails certificationDetails = certificationDetailsServiceimpl.updateCertificationDetails(certificationCourse1.getEmployeeId(), certificationCourse1);
 
-        assertNotNull(training);
-        assertEquals("2024-01-01", training.getValidity());
+        assertNotNull(certificationDetails);
+        assertEquals("2024-01-01", certificationDetails.getValidity());
     }
     
 }
