@@ -62,14 +62,12 @@ public class DayOffAPITest {
     @Test
     @Order(3)
     public void updateDayOffTest() throws Exception{
-        DayOff updateDF = DayOff.builder().employeeName("Pavithra").allocatedLeave("15").build();
-        // DayOff updateDF = DayOff.builder().allocatedLeave("15").used("8").balance("7").build();
+        DayOff updateDF = DayOff.builder().employeeId("1").employeeName("pavi").allocatedLeave("15").build();
         RestAssured.given().baseUri("http://localhost").port(port).contentType(ContentType.JSON)
-        //.queryParam("employeeId", dayOffTest.employeeId)
         .accept(ContentType.JSON).body(updateDF)
         .when().put("/updateDayOff")
-        .then();
-        //.statusCode(200);
+        .then()
+        .statusCode(200);
     }
 }
 

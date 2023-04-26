@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -50,7 +49,8 @@ public class DayOffController {
     }
 
     @PutMapping("/updateDayOff")
-    public ResponseEntity<DayOff> updateDayOff(String employeeId, @RequestBody DayOff dayOff) {
+    public ResponseEntity<DayOff> updateDayOff(@RequestBody DayOff dayOff) {
+        String employeeId = dayOff.getEmployeeId();
         try {
             DayOff updateDayOff = dayOffService.updateDayOff(employeeId, dayOff);
             return ResponseEntity.ok(updateDayOff);

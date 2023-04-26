@@ -11,7 +11,7 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.zaga.employee_onboarding.entity.Training;
+import com.zaga.employee_onboarding.entity.CertificationDetails;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -21,9 +21,9 @@ import io.restassured.http.ContentType;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @ActiveProfiles("test")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class TrainingApiTest {
+public class CertificationDetailsApiTest {
 
-    private Training responsebody;
+    private CertificationDetails responsebody;
 
     @LocalServerPort
     int port;
@@ -31,16 +31,16 @@ public class TrainingApiTest {
     @Test
     @Order(1)
     public void testCreateTraining() throws Exception {
-        Training training = Training.builder().employeeId("1").employeeName("Sharanya")
+        CertificationDetails training = CertificationDetails.builder().employeeId("1").employeeName("Sharanya")
                 .courseName("Linux").certificationName("RHCSA Certification").level("Intermediate").validity("2024-05-25").build();
         
         // list.add(training);
         responsebody = RestAssured.given()
                     .baseUri("http://localhost")
                     .port(port).contentType(ContentType.JSON).accept(ContentType.JSON).body(training).when()
-                .post("/training")
+                .post("/certificationDetails")
                 .then()
-                .statusCode(200).extract().as(Training.class);
+                .statusCode(200).extract().as(CertificationDetails.class);
 
         System.out.println(responsebody);
     }
@@ -53,7 +53,7 @@ public class TrainingApiTest {
                 .contentType(ContentType.JSON)
                 .queryParam("employeeId", responsebody.employeeId)
                 .when()
-                .get("/getTrainingById")
+                .get("/getCertificationDetailsById")
                 .then()
                 .statusCode(200);
     }
@@ -61,7 +61,7 @@ public class TrainingApiTest {
     @Test
     @Order(3)
     public void updateTrainingTest() throws Exception {
-        Training updateTraining = Training.builder().employeeId("1").employeeName("Sharanya")
+        CertificationDetails updateTraining = CertificationDetails.builder().employeeId("1").employeeName("Sharanya")
                 .validity("2024-01-01").build();
         RestAssured.given().baseUri("http://localhost")
                 .port(port)
@@ -69,7 +69,7 @@ public class TrainingApiTest {
                 .accept(ContentType.JSON)
                 .body(updateTraining)
                 .when()
-                .put("/updateTraining")
+                .put("/updateCertificationDetails")
                 .then();
                 // .statusCode(200);
     }

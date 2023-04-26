@@ -46,7 +46,8 @@ public class SkillsController {
     }
 
     @PutMapping("/updateSkills")
-    public ResponseEntity<Skills> updateSkills(String employeeId, @RequestBody Skills skills) {
+    public ResponseEntity<Skills> updateSkills(@RequestBody Skills skills) {
+        String employeeId=skills.getEmployeeId();
         try {
             Skills updateSkills = skillsService.updateSkills(employeeId, skills);
             return ResponseEntity.ok(updateSkills);

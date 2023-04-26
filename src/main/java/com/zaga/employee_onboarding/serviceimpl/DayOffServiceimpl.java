@@ -38,20 +38,6 @@ public class DayOffServiceimpl implements DayOffService {
     @Override
     public DayOff updateDayOff(String employeeId, DayOff dayOff) {
 
-        // DayOff dd = dayOffRepo.findById(employeeId).orElse(null);
-        // if (dd == null) {
-        //     throw new RuntimeException("DayOff not found with id " + employeeId);
-        // }
-
-        // else {
-        //     DayOff dayoff = dd;
-        //     // dayoff.setId(dayOff.getId());
-        //     dayoff.setAllocatedLeave(dayOff.getAllocatedLeave());
-        //     dayoff.setBalance(dayOff.getBalance());
-        //     dayoff.setUsed(dayOff.getUsed());
-        //     return dayOffRepo.save(dayoff);
-        // }
-
         DayOff updateDayOff = dayOffRepo.findById(employeeId).get();
         updateDayOff.setAllocatedLeave(dayOff.getAllocatedLeave());
         updateDayOff.setUsed(dayOff.getUsed());

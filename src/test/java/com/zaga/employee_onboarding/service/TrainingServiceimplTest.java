@@ -18,25 +18,25 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.zaga.employee_onboarding.entity.Training;
-import com.zaga.employee_onboarding.repository.TrainingRepo;
-import com.zaga.employee_onboarding.serviceimpl.TrainingServiceimpl;
+import com.zaga.employee_onboarding.entity.CertificationDetails;
+import com.zaga.employee_onboarding.repository.CertificationDetailsRepo;
+import com.zaga.employee_onboarding.serviceimpl.CertificationDetailsServiceimpl;
 
 @ExtendWith(MockitoExtension.class)
 public class TrainingServiceimplTest {
 
     @Mock
-    TrainingRepo trainingRepo;
+    CertificationDetailsRepo trainingRepo;
 
     @InjectMocks
-    TrainingServiceimpl trainingServiceimpl;
+    CertificationDetailsServiceimpl trainingServiceimpl;
 
-    public Training certificationCourse1;
-    public Training certificationCourse2;
+    public CertificationDetails certificationCourse1;
+    public CertificationDetails certificationCourse2;
 
     @BeforeEach
     void init() {
-        certificationCourse1 = new Training();
+        certificationCourse1 = new CertificationDetails();
         certificationCourse1.setEmployeeId("1");
         certificationCourse1.setEmployeeName("Sharanya");
         certificationCourse1.setCourseName("Linux");
@@ -44,7 +44,7 @@ public class TrainingServiceimplTest {
         certificationCourse1.setLevel("Advanced");
         certificationCourse1.setValidity("2024-05-25");
 
-        certificationCourse2 = new Training();
+        certificationCourse2 = new CertificationDetails();
         certificationCourse2.setEmployeeId("2");
         certificationCourse2.setEmployeeName("Pavithra");
         certificationCourse2.setCourseName("Java");
@@ -55,9 +55,9 @@ public class TrainingServiceimplTest {
 
     @Test
     void createTraining() {
-        when(trainingRepo.save(any(Training.class))).thenReturn(certificationCourse1);
+        when(trainingRepo.save(any(CertificationDetails.class))).thenReturn(certificationCourse1);
 
-        Training training = trainingServiceimpl.createTraining(certificationCourse1);
+        CertificationDetails training = trainingServiceimpl.createTraining(certificationCourse1);
 
         assertNotNull(training);
         assertThat(training.getEmployeeId()).isEqualTo("1");
@@ -65,13 +65,13 @@ public class TrainingServiceimplTest {
 
     @Test
     void getAllTraining() {
-        List<Training> training = new ArrayList<>();
+        List<CertificationDetails> training = new ArrayList<>();
         training.add(certificationCourse1);
         training.add(certificationCourse2);
 
         when(trainingRepo.findAll()).thenReturn(training);
         
-        List<Training> trainingList = trainingServiceimpl.getAllTraining();
+        List<CertificationDetails> trainingList = trainingServiceimpl.getAllTraining();
 
         assertEquals(2, trainingList.size());
         assertNotNull(trainingList);
@@ -81,7 +81,7 @@ public class TrainingServiceimplTest {
     void getTrainingById() {
         when(trainingRepo.findById(anyString())).thenReturn(Optional.of(certificationCourse1));
 
-        Training training = trainingServiceimpl.getTrainingById(certificationCourse1.getEmployeeId());
+        CertificationDetails training = trainingServiceimpl.getTrainingById(certificationCourse1.getEmployeeId());
 
         assertNotNull(training);
         assertThat(training.getEmployeeId()).isEqualTo("1");
@@ -91,9 +91,9 @@ public class TrainingServiceimplTest {
     void updateTraining() {
         when(trainingRepo.findById(anyString())).thenReturn(Optional.of(certificationCourse1));
 
-        when(trainingRepo.save(any(Training.class))).thenReturn(certificationCourse1);
+        when(trainingRepo.save(any(CertificationDetails.class))).thenReturn(certificationCourse1);
         certificationCourse1.setValidity("2024-01-01");
-        Training training = trainingServiceimpl.updateTraining(certificationCourse1.getEmployeeId(), certificationCourse1);
+        CertificationDetails training = trainingServiceimpl.updateTraining(certificationCourse1.getEmployeeId(), certificationCourse1);
 
         assertNotNull(training);
         assertEquals("2024-01-01", training.getValidity());

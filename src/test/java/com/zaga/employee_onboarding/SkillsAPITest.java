@@ -82,8 +82,8 @@ public class SkillsAPITest {
                     .body(skills)
                     .when()
                     .put("/updateSkills")
-                    .then();
-                    // .statusCode(200)
+                    .then()
+                    .statusCode(200);
     }
 
 }

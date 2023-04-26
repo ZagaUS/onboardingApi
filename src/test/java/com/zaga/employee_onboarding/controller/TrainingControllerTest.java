@@ -23,8 +23,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zaga.employee_onboarding.entity.Training;
-import com.zaga.employee_onboarding.serviceimpl.TrainingServiceimpl;
+import com.zaga.employee_onboarding.entity.CertificationDetails;
+import com.zaga.employee_onboarding.serviceimpl.CertificationDetailsServiceimpl;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
@@ -34,17 +34,17 @@ public class TrainingControllerTest {
     MockMvc mockMvc;
 
     @MockBean
-    TrainingServiceimpl trainingServiceimpl;
+    CertificationDetailsServiceimpl certificationServiceimpl;
 
     @Autowired
     ObjectMapper objectMapper;
 
-    public Training certificationCourse1;
-    public Training certificationCourse2;
+    public CertificationDetails certificationCourse1;
+    public CertificationDetails certificationCourse2;
 
     @BeforeEach
     void init() {
-        certificationCourse1 = new Training();
+        certificationCourse1 = new CertificationDetails();
         certificationCourse1.setEmployeeId("1");
         certificationCourse1.setEmployeeName("Sharanya");
         certificationCourse1.setCourseName("Linux");
@@ -52,7 +52,7 @@ public class TrainingControllerTest {
         certificationCourse1.setLevel("Advanced");
         certificationCourse1.setValidity("2024-05-25");
 
-        certificationCourse2 = new Training();
+        certificationCourse2 = new CertificationDetails();
         certificationCourse2.setEmployeeId("2");
         certificationCourse2.setEmployeeName("Pavithra");
         certificationCourse2.setCourseName("Java");
@@ -63,7 +63,7 @@ public class TrainingControllerTest {
 
     @Test
     void shouldCreateTrainingDetails() throws Exception {
-        when(trainingServiceimpl.createTraining(any(Training.class))).thenReturn(certificationCourse1);
+        when(certificationServiceimpl.createTraining(any(CertificationDetails.class))).thenReturn(certificationCourse1);
 
         mockMvc.perform(post("/training")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -80,11 +80,11 @@ public class TrainingControllerTest {
 
     @Test
     void shouldFetchAllTrainingDetails() throws Exception {
-        List<Training> trainingList = new ArrayList<>();
+        List<CertificationDetails> trainingList = new ArrayList<>();
         trainingList.add(certificationCourse1);
         trainingList.add(certificationCourse2);
 
-        when(trainingServiceimpl.getAllTraining()).thenReturn(trainingList);
+        when(certificationServiceimpl.getAllTraining()).thenReturn(trainingList);
 
         this.mockMvc.perform(get("/getAllTraining")
                 .contentType(MediaType.APPLICATION_JSON))
@@ -105,7 +105,7 @@ public class TrainingControllerTest {
 
     @Test
     void getTrainingDetailsById() throws Exception {
-        when(trainingServiceimpl.getTrainingById(anyString())).thenReturn(certificationCourse1);
+        when(certificationServiceimpl.getTrainingById(anyString())).thenReturn(certificationCourse1);
 
         this.mockMvc.perform(get("/getTrainingById")
                 .param("employeeId", "1")
@@ -117,7 +117,7 @@ public class TrainingControllerTest {
 
     @Test
     void shouldUpdateTrainingDetails() throws Exception {
-        when(trainingServiceimpl.updateTraining(anyString(), any(Training.class))).thenReturn(certificationCourse1);
+        when(certificationServiceimpl.updateTraining(anyString(), any(CertificationDetails.class))).thenReturn(certificationCourse1);
 
         this.mockMvc.perform(put("/updateTraining")
                 .param("employeeId", "1")
