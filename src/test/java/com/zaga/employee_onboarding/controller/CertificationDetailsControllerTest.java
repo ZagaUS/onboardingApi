@@ -28,7 +28,7 @@ import com.zaga.employee_onboarding.serviceimpl.CertificationDetailsServiceimpl;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-public class TrainingControllerTest {
+public class CertificationDetailsControllerTest {
     
     @Autowired
     MockMvc mockMvc;
@@ -65,7 +65,7 @@ public class TrainingControllerTest {
     void shouldCreateTrainingDetails() throws Exception {
         when(certificationServiceimpl.createTraining(any(CertificationDetails.class))).thenReturn(certificationCourse1);
 
-        mockMvc.perform(post("/training")
+        mockMvc.perform(post("/certificationDetails")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(certificationCourse1)))
         
@@ -86,7 +86,7 @@ public class TrainingControllerTest {
 
         when(certificationServiceimpl.getAllTraining()).thenReturn(trainingList);
 
-        this.mockMvc.perform(get("/getAllTraining")
+        this.mockMvc.perform(get("/getAllCertificationDetails")
                 .contentType(MediaType.APPLICATION_JSON))
 
         .andExpect(status().isOk())
@@ -107,7 +107,7 @@ public class TrainingControllerTest {
     void getTrainingDetailsById() throws Exception {
         when(certificationServiceimpl.getTrainingById(anyString())).thenReturn(certificationCourse1);
 
-        this.mockMvc.perform(get("/getTrainingById")
+        this.mockMvc.perform(get("/getCertificationDetailsById")
                 .param("employeeId", "1")
                 .contentType(MediaType.APPLICATION_JSON)) 
         .andExpect(status().isOk())
@@ -119,7 +119,7 @@ public class TrainingControllerTest {
     void shouldUpdateTrainingDetails() throws Exception {
         when(certificationServiceimpl.updateTraining(anyString(), any(CertificationDetails.class))).thenReturn(certificationCourse1);
 
-        this.mockMvc.perform(put("/updateTraining")
+        this.mockMvc.perform(put("/updateCertificationDetails")
                 .param("employeeId", "1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(certificationCourse1)))
