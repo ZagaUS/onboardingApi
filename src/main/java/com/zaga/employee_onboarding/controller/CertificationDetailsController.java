@@ -21,36 +21,36 @@ public class CertificationDetailsController {
     CertificationDetailsService certificationDetailsService;
 
     @PostMapping("/certificationDetails")
-    public ResponseEntity<CertificationDetails> createTraining(@RequestBody CertificationDetails training) {
-        CertificationDetails createCertificationDetails = certificationDetailsService.createTraining(training);
+    public ResponseEntity<CertificationDetails> createCertificationDetails(@RequestBody CertificationDetails certificationDetails) {
+        CertificationDetails createCertificationDetails = certificationDetailsService.createCertificationDetails(certificationDetails);
         return ResponseEntity.ok(createCertificationDetails);
     }
 
     @GetMapping("/getAllCertificationDetails")
-    public ResponseEntity<List<CertificationDetails>> getAllTraining() {
+    public ResponseEntity<List<CertificationDetails>> getAllCertificationDetails() {
         try {
-            List<CertificationDetails> getAllcCertificationDetails = certificationDetailsService.getAllTraining();
-            return ResponseEntity.ok(getAllcCertificationDetails);
+            List<CertificationDetails> getAllCertificationDetails = certificationDetailsService.getAllCertificationDetails();
+            return ResponseEntity.ok(getAllCertificationDetails);
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
     }
 
     @GetMapping("/getCertificationDetailsById")
-    public ResponseEntity<CertificationDetails> getTrainingById(@RequestParam String employeeId) {
+    public ResponseEntity<CertificationDetails> getCertificationDetailsById(@RequestParam String employeeId) {
         try {
-            CertificationDetails getTrainingById = certificationDetailsService.getTrainingById(employeeId);
-            return ResponseEntity.ok(getTrainingById);
+            CertificationDetails getCertificationDetailsById = certificationDetailsService.getCertificationDetailsById(employeeId);
+            return ResponseEntity.ok(getCertificationDetailsById);
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
     }
 
     @PutMapping("/updateCertificationDetails")
-    public ResponseEntity<CertificationDetails> updateTraining(@RequestParam String employeeId, @RequestBody CertificationDetails training) {
+    public ResponseEntity<CertificationDetails> updateCertificationDetails(@RequestParam String employeeId, @RequestBody CertificationDetails certificationDetails) {
         try {
-            CertificationDetails updateTraining = certificationDetailsService.updateTraining(employeeId, training);
-            return ResponseEntity.ok(updateTraining);
+            CertificationDetails updateCertificationDetails = certificationDetailsService.updateCertificationDetails(employeeId, certificationDetails);
+            return ResponseEntity.ok(updateCertificationDetails);
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }

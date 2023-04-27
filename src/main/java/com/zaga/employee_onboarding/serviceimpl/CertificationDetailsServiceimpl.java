@@ -13,33 +13,33 @@ import com.zaga.employee_onboarding.service.CertificationDetailsService;
 public class CertificationDetailsServiceimpl implements CertificationDetailsService {
     
     @Autowired
-    CertificationDetailsRepo trainingRepo;
+    CertificationDetailsRepo certificationDetailsRepo;
 
     @Override
-    public CertificationDetails createTraining(CertificationDetails training) {
-        CertificationDetails training2 = trainingRepo.save(training);
-        return training2;
+    public CertificationDetails createCertificationDetails(CertificationDetails certificationDetails) {
+        CertificationDetails details = certificationDetailsRepo.save(certificationDetails);
+        return details;
     }
 
     @Override
-    public List<CertificationDetails> getAllTraining() {
-        List<CertificationDetails> getTraining = trainingRepo.findAll();
-        return getTraining;
+    public List<CertificationDetails> getAllCertificationDetails() {
+        List<CertificationDetails> getDetails = certificationDetailsRepo.findAll();
+        return getDetails;
     }
 
     @Override
-    public CertificationDetails getTrainingById(String employeeId) {
-        CertificationDetails getTraining = trainingRepo.findById(employeeId).get();
-        return getTraining;
+    public CertificationDetails getCertificationDetailsById(String employeeId) {
+        CertificationDetails getDetailsById = certificationDetailsRepo.findById(employeeId).get();
+        return getDetailsById;
     }
 
     @Override
-    public CertificationDetails updateTraining(String employeeId, CertificationDetails training) {
-        CertificationDetails updateTraining = trainingRepo.findById(employeeId).get();
-        updateTraining.setCourseName(training.getCourseName());
-        updateTraining.setCertificationName(training.getCertificationName());
-        updateTraining.setLevel(training.getLevel());
-        updateTraining.setValidity(training.getValidity());
-        return trainingRepo.save(updateTraining);
+    public CertificationDetails updateCertificationDetails(String employeeId, CertificationDetails certificationDetails) {
+        CertificationDetails updateCertificationDetails = certificationDetailsRepo.findById(employeeId).get();
+        updateCertificationDetails.setCourseName(certificationDetails.getCourseName());
+        updateCertificationDetails.setCertificationName(certificationDetails.getCertificationName());
+        updateCertificationDetails.setLevel(certificationDetails.getLevel());
+        updateCertificationDetails.setValidity(certificationDetails.getValidity());
+        return certificationDetailsRepo.save(updateCertificationDetails);
     }
 }

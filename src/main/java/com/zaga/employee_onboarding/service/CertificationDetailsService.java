@@ -9,12 +9,12 @@ import com.zaga.employee_onboarding.entity.CertificationDetails;
 @Service
 public interface CertificationDetailsService {
 
-    public CertificationDetails createTraining(CertificationDetails training);
+    public CertificationDetails createCertificationDetails(CertificationDetails certificationDetails);
 
-    public List<CertificationDetails> getAllTraining();
+    public List<CertificationDetails> getAllCertificationDetails();
 
-    public CertificationDetails getTrainingById(String employeeId);
+    public CertificationDetails getCertificationDetailsById(String employeeId);
 
-    public CertificationDetails updateTraining(String employeeId, CertificationDetails training);
+    public CertificationDetails updateCertificationDetails(String employeeId, CertificationDetails certificationDetails);
     
 }
