@@ -23,7 +23,7 @@ import com.zaga.employee_onboarding.repository.CertificationDetailsRepo;
 import com.zaga.employee_onboarding.serviceimpl.CertificationDetailsServiceimpl;
 
 @ExtendWith(MockitoExtension.class)
-public class TrainingServiceimplTest {
+public class CertificationDetailsServiceimplTest {
 
     @Mock
     CertificationDetailsRepo trainingRepo;
