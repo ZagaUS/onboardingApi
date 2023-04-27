@@ -12,9 +12,9 @@ public interface TaskService {
 
     public List<Task> getTask();
 
-    public Task getTaskById(String employeeId);
+    public Task getTaskById(String taskId);
 
-    public Task updateTask(String employeeId,Task task);
+    public Task updateTask(String taskId,Task task);
 
 
     
