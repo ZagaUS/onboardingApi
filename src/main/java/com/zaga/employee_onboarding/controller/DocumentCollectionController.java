@@ -14,7 +14,7 @@ import com.zaga.employee_onboarding.entity.DocumentCollection;
 import com.zaga.employee_onboarding.service.DocumentCollectionService;
 
 @RestController
-@RequestMapping("/documentCollection")
+// @RequestMapping("/documentCollection")
 public class DocumentCollectionController {
 
     @Autowired
