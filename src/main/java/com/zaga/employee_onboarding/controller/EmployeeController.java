@@ -19,11 +19,23 @@ public class EmployeeController {
 @Autowired
 EmployeeCreateServiceImpl service;
 
+    // @PostMapping("/createEmployee")
+    // public ResponseEntity<?> createEmployee(@RequestBody EmployeeInfoDto dto) throws IOException{
+    //        String createdEmployeeId = service.createEmployeeInfo(dto);
+    //        return new ResponseEntity<>(createdEmployeeId,HttpStatus.CREATED);
+    // } 
+
     @PostMapping("/createEmployee")
-    public ResponseEntity<?> createEmployee(@RequestBody EmployeeInfoDto dto) throws IOException{
-           String createdEmployeeId = service.createEmployeeInfo(dto);
-           return new ResponseEntity<>(createdEmployeeId,HttpStatus.CREATED);
-    } 
+public ResponseEntity<?> createEmployee(@RequestBody EmployeeInfoDto employeeInfoDto) {
+    try {
+        // Your code here
+        String createdEmployeeId = service.createEmployeeInfo(employeeInfoDto);
+        // return ResponseEntity.ok().body("{ \"message\": \"Updated successfully\" }");
+        return new ResponseEntity<>(createdEmployeeId,HttpStatus.CREATED);
+    } catch(Exception e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+    }
+}
 
 
 }

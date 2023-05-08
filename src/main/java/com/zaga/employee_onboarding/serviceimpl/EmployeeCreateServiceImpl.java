@@ -41,7 +41,16 @@ public class EmployeeCreateServiceImpl {
 
     public String createEmployeeInfo(EmployeeInfoDto employeeInfoDto) throws IOException {
         String employeeid = sequenceGeneratorService.getNextSequence("Employee");
-        String employeename = employeeInfoDto.getEmployeeInfo().getEmployeeName();
+        // String employeename = employeeInfoDto.getEmployeeInfo().getEmployeeName();
+
+        if (employeeInfoDto != null && employeeInfoDto.getEmployeeInfo() != null) {
+            String employeename = employeeInfoDto.getEmployeeInfo().getEmployeeName();
+            // Rest of your code here
+        }
+        else {
+            return "INTERNAL_SERVER_ERROR";
+        }
+        
 
         // employee info
         EmployeeInfo employeeObj = employeeInfoDto.getEmployeeInfo();
@@ -55,7 +64,8 @@ public class EmployeeCreateServiceImpl {
 
         personalObj.setEmployeeId(employeeid);
 
-        personalObj.setEmployeeName(employeename);
+        // personalObj.setEmployeeName(employeename);
+        personalObj.setEmployeeName(employeeInfoDto.getEmployeeInfo().getEmployeeName());
 
         PersonalInfo personalInfo = personalInfoService.createPersonalInfo(personalObj);
 
@@ -71,13 +81,15 @@ public class EmployeeCreateServiceImpl {
         EducationDetails educationDetails = new EducationDetails();
         educationDetails.setEducationDetails(employeeInfoDto.getEducationDetails());
         educationDetails.setEmployeeId(employeeid);
-        educationDetails.setEmployeeName(employeename);
+        // educationDetails.setEmployeeName(employeename);
+        educationDetails.setEmployeeName(employeeInfoDto.getEmployeeInfo().getEmployeeName());
         EducationDetails result = educationDetailsService.createEducationalInfo(educationDetails);
 
         // job history
         JobHistory jobHistory = new JobHistory();
         jobHistory.setEmployeeId(employeeid);
-        jobHistory.setEmployeeName(employeename);
+        // jobHistory.setEmployeeName(employeename);
+        jobHistory.setEmployeeName(employeeInfoDto.getEmployeeInfo().getEmployeeName());
         jobHistory.setJobHistoryDetails(employeeInfoDto.getJobHistoryDetails());
         JobHistory results = jobHistoryService.createJobHistoryInfo(jobHistory);
 
