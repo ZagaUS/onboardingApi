@@ -16,4 +16,6 @@ public interface EducationDetailsService {
 
     EducationDetails updateEducationalInfo(String employeeId, EducationDetails dto);
 
+    public void deleteEducationalInfoById(String employeeId);
+
 }

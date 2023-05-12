@@ -41,4 +41,9 @@ public class SkillsServiceimpl implements SkillsService {
         updateSkills.setYearsOfExperience(skills.getYearsOfExperience());
         return skillsRepo.save(updateSkills);
     }
+
+    @Override
+    public void deleteSkillsById(String employeeId) {
+        skillsRepo.deleteById(employeeId);
+    }
 }

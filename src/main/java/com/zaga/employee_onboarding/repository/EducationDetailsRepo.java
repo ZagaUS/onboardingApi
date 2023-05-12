@@ -14,4 +14,7 @@ public interface EducationDetailsRepo extends MongoRepository<EducationDetails, 
 
     @Query(value = "{'employeeName' : ?0}")
     public EducationDetails getEducationalDetailsbyName(String employeeName);
+
+    @Query(value = "{'employeeId' : ?0}", delete = true)
+    public void deleteEducationalDetails(String employeeId);
 }

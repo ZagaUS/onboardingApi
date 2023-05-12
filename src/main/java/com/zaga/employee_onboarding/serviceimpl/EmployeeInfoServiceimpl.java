@@ -91,4 +91,10 @@ public class EmployeeInfoServiceimpl implements EmployeeInfoService {
 
     }
 
+    @Override
+    public void deleteDetailsById(String employeeId) {
+        employeeInfoRepo.deleteById(employeeId);
+
+    }
+
 }

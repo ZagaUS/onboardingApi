@@ -42,4 +42,9 @@ public class JobHistoryServiceImpl implements JobHistoryService {
 
     }
 
+    @Override
+    public void deleteJobHistoryInfo(String employeeId) {
+        repo.deleteJobHistoryDetails(employeeId);
+    }
+
 }

@@ -16,5 +16,7 @@ public interface PersonalInfoService  {
     public PersonalInfo getPersonalInfoById(String employeeId);
 
     public PersonalInfo updatePersonalInfo(String employeeId ,PersonalInfo personalInfo);
+
+    public void deletePersonalInfo(String employeeId);
     
 }

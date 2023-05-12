@@ -3,11 +3,6 @@ package com.zaga.employee_onboarding.serviceimpl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.zaga.employee_onboarding.entity.EducationDetails;
@@ -44,6 +39,11 @@ public class EducationDetailsServiceImpl implements EducationDetailsService {
         dto.setId(updatePersonalInfo.getId());
 
         return repo.save(dto);
+    }
+
+    @Override
+    public void deleteEducationalInfoById(String employeeId) {
+        repo.deleteEducationalDetails(employeeId);
     }
 
 }

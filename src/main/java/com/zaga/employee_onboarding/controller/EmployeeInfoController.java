@@ -2,12 +2,10 @@ package com.zaga.employee_onboarding.controller;
 
 import java.util.List;
 
-
-// import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -23,15 +21,12 @@ import com.zaga.employee_onboarding.service.EmployeeInfoService;
 import com.zaga.employee_onboarding.service.SequenceGeneratorService;
 
 @RestController
-// @CrossOrigin(origins = "http://localhost:8080")
 public class EmployeeInfoController {
     @Autowired
     EmployeeInfoService employeeInfoService;
 
     @Autowired
     SequenceGeneratorService sequenceGeneratorService;
-
-    
 
     @RequestMapping(path = "/createEmployeeInfo", method = RequestMethod.POST, consumes = {
             MediaType.APPLICATION_JSON_VALUE })
@@ -95,6 +90,11 @@ public class EmployeeInfoController {
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
+    }
+
+    @DeleteMapping("/deleteEmployeeInfo/{employeeId}")
+    public void deleteDetails(@PathVariable String employeeId) {
+        employeeInfoService.deleteDetailsById(employeeId);
     }
 
 }

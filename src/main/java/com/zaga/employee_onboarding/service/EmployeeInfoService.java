@@ -23,5 +23,7 @@ public interface EmployeeInfoService {
     public EmployeeInfo getDetailsById(String employeeId);
 
     public EmployeeInfo updateDetails(String employeeId, EmployeeInfo employeeInfo);
+
+    public void deleteDetailsById(String employeeId);
     
 }

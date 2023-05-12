@@ -15,4 +15,7 @@ public interface JobHistoryRepo extends MongoRepository<JobHistory, String> {
     @Query(value = "{'employeeName' : ?0}")
     public JobHistory getJobHistorybyName(String employeeName);
 
+    @Query(value = "{'employeeId' : ?0}", delete = true)
+    public void deleteJobHistoryDetails(String employeeId);
+
 }

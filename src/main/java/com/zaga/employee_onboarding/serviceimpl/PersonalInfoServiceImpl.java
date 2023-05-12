@@ -48,5 +48,10 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
         updatePersonalInfo.setAddress(personalInfo.getAddress());
         return personalInfoRepo.save(updatePersonalInfo);
     }
+
+    @Override
+    public void deletePersonalInfo(String employeeId) {
+        personalInfoRepo.deleteById(employeeId);
+    }
     
 }

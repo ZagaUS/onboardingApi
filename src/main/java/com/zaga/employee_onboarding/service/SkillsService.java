@@ -17,4 +17,6 @@ public interface SkillsService {
 
     public Skills updateSkills(String employeeId, Skills skills);
 
+    public void deleteSkillsById(String employeeId);
+
 }

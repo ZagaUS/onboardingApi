@@ -15,4 +15,6 @@ public interface JobHistoryService {
     JobHistory getJobHistorynfoById(String employeeId);
 
     JobHistory updateJobHistoryInfo(String employeeId, JobHistory dto);
+
+    public void deleteJobHistoryInfo(String employeeId);
 }

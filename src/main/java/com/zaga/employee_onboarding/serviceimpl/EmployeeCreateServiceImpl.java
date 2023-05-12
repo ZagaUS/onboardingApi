@@ -45,39 +45,29 @@ public class EmployeeCreateServiceImpl {
 
         if (employeeInfoDto != null && employeeInfoDto.getEmployeeInfo() != null) {
             String employeename = employeeInfoDto.getEmployeeInfo().getEmployeeName();
-            // Rest of your code here
         }
         else {
             return "INTERNAL_SERVER_ERROR";
-        }
-        
+        }    
 
         // employee info
         EmployeeInfo employeeObj = employeeInfoDto.getEmployeeInfo();
-
         employeeObj.setEmployeeId(employeeid);
-
         EmployeeInfo employeeInfo = employeeInfoService.addDetails(employeeObj);
 
         // personal info
         PersonalInfo personalObj = employeeInfoDto.getPersonalInfo();
-
         personalObj.setEmployeeId(employeeid);
-
         // personalObj.setEmployeeName(employeename);
         personalObj.setEmployeeName(employeeInfoDto.getEmployeeInfo().getEmployeeName());
-
         PersonalInfo personalInfo = personalInfoService.createPersonalInfo(personalObj);
 
         // skill
         Skills skillsObj = employeeInfoDto.getSkills();
-
         skillsObj.setEmployeeId(employeeid);
-
         Skills skills = skillsService.createSkills(skillsObj);
 
         // education info
-
         EducationDetails educationDetails = new EducationDetails();
         educationDetails.setEducationDetails(employeeInfoDto.getEducationDetails());
         educationDetails.setEmployeeId(employeeid);
@@ -96,4 +86,20 @@ public class EmployeeCreateServiceImpl {
         return employeeid;
 
     }
+
+    public void deleteEmployeeInfo(String employeeId) {
+            String employeeid = employeeId;
+    
+            employeeInfoService.deleteDetailsById(employeeid);
+    
+            personalInfoService.deletePersonalInfo(employeeid);
+    
+            skillsService.deleteSkillsById(employeeid);
+    
+            educationDetailsService.deleteEducationalInfoById(employeeid);
+    
+            jobHistoryService.deleteJobHistoryInfo(employeeid);
+
+    }
+    
 }
