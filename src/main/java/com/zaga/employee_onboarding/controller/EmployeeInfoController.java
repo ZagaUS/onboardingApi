@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.zaga.employee_onboarding.entity.EmployeeInfo;
 import com.zaga.employee_onboarding.entity.ListOfEmployeesDTO;
+import com.zaga.employee_onboarding.entity.dto.UnassignedEmployeesDTO;
 import com.zaga.employee_onboarding.repository.EmployeeInfoRepo;
 import com.zaga.employee_onboarding.service.EmployeeInfoService;
 import com.zaga.employee_onboarding.service.SequenceGeneratorService;
@@ -68,19 +69,21 @@ public class EmployeeInfoController {
     }
 
     @GetMapping("/getListOfInactiveEmployeeInfo")
-    public List<ListOfEmployeesDTO> getListOfInactiveEmployees() {
+    public List<UnassignedEmployeesDTO> getListOfInactiveEmployees() {
 
         List<EmployeeInfo> getEmployeeInfo = repo.getInactiveEmployeeInfo();
-        List<ListOfEmployeesDTO> listOfEmployees = getEmployeeInfo.stream().map(employee -> {
-            ListOfEmployeesDTO listOfEmployeesDTO = new ListOfEmployeesDTO();
+        List<UnassignedEmployeesDTO> unassignedEmployees = getEmployeeInfo.stream().map(employee -> {
+            UnassignedEmployeesDTO listOfEmployeesDTO = new UnassignedEmployeesDTO();
             listOfEmployeesDTO.setEmployeeId(employee.getEmployeeId());
             listOfEmployeesDTO.setEmployeeName(employee.getEmployeeName());
             listOfEmployeesDTO.setEmployeeRole(employee.getEmployeeRole());
+            listOfEmployeesDTO.setEmployeeEmail(employee.getEmployeeEmail());
+            // listOfEmployeesDTO.setEmployeeNumber(employee.getEmplo);
             listOfEmployeesDTO.setProjectAssignmentStatus(employee.getProjectAssignmentStatus());
 
             return listOfEmployeesDTO;
         }).collect(Collectors.toList());
-        return listOfEmployees;
+        return unassignedEmployees;
     }
     
 
