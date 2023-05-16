@@ -5,5 +5,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import com.zaga.employee_onboarding.entity.DocumentCollection;
 
 public interface DocumentCollectionRepo extends MongoRepository<DocumentCollection, String>{
+
+    DocumentCollection findByEmployeeId(String employeeId, Class<DocumentCollection> class1);
     
 }
