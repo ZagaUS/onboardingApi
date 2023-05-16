@@ -1,6 +1,7 @@
 package com.zaga.employee_onboarding.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.zaga.employee_onboarding.entity.EmployeeInfo;
 import com.zaga.employee_onboarding.entity.ListOfEmployeesDTO;
+import com.zaga.employee_onboarding.repository.EmployeeInfoRepo;
 import com.zaga.employee_onboarding.service.EmployeeInfoService;
 import com.zaga.employee_onboarding.service.SequenceGeneratorService;
 
@@ -24,6 +26,9 @@ import com.zaga.employee_onboarding.service.SequenceGeneratorService;
 public class EmployeeInfoController {
     @Autowired
     EmployeeInfoService employeeInfoService;
+
+    @Autowired
+    EmployeeInfoRepo repo;
 
     @Autowired
     SequenceGeneratorService sequenceGeneratorService;
@@ -62,15 +67,22 @@ public class EmployeeInfoController {
         }
     }
 
-    // @GetMapping("/getListOfEmployeeInfo/{employeeId}")
-    // public ResponseEntity<ListOfEmployeesDTO> getListOfEmployeesById(@PathVariable String employeeId) {
-    //     try {
-    //         ListOfEmployeesDTO getListOfEmployeeInfoById = employeeInfoService.getListOfEmployeesById(employeeId);
-    //         return ResponseEntity.ok(getListOfEmployeeInfoById);
-    //     } catch (Exception e) {
-    //         return ResponseEntity.badRequest().build();
-    //     }
-    // }
+    @GetMapping("/getListOfInactiveEmployeeInfo")
+    public List<ListOfEmployeesDTO> getListOfInactiveEmployees() {
+
+        List<EmployeeInfo> getEmployeeInfo = repo.getInactiveEmployeeInfo();
+        List<ListOfEmployeesDTO> listOfEmployees = getEmployeeInfo.stream().map(employee -> {
+            ListOfEmployeesDTO listOfEmployeesDTO = new ListOfEmployeesDTO();
+            listOfEmployeesDTO.setEmployeeId(employee.getEmployeeId());
+            listOfEmployeesDTO.setEmployeeName(employee.getEmployeeName());
+            listOfEmployeesDTO.setEmployeeRole(employee.getEmployeeRole());
+            listOfEmployeesDTO.setProjectAssignmentStatus(employee.getProjectAssignmentStatus());
+
+            return listOfEmployeesDTO;
+        }).collect(Collectors.toList());
+        return listOfEmployees;
+    }
+    
 
     @GetMapping("/getEmployeeInfo")
     public ResponseEntity<EmployeeInfo> getDetailsById(@RequestParam String employeeId) {
