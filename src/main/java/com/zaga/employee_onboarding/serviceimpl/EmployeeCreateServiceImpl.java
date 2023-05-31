@@ -5,12 +5,14 @@ import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.zaga.employee_onboarding.entity.DayOff;
 import com.zaga.employee_onboarding.entity.EducationDetails;
 import com.zaga.employee_onboarding.entity.EmployeeInfo;
 import com.zaga.employee_onboarding.entity.JobHistory;
 import com.zaga.employee_onboarding.entity.PersonalInfo;
 import com.zaga.employee_onboarding.entity.Skills;
 import com.zaga.employee_onboarding.entity.dto.EmployeeInfoDto;
+import com.zaga.employee_onboarding.service.DayOffService;
 import com.zaga.employee_onboarding.service.EducationDetailsService;
 import com.zaga.employee_onboarding.service.EmployeeInfoService;
 import com.zaga.employee_onboarding.service.JobHistoryService;
@@ -32,6 +34,9 @@ public class EmployeeCreateServiceImpl {
 
     @Autowired
     SkillsService skillsService;
+
+    @Autowired
+    DayOffService dayOffService;
 
     @Autowired
     EducationDetailsService educationDetailsService;
@@ -82,6 +87,11 @@ public class EmployeeCreateServiceImpl {
         jobHistory.setEmployeeName(employeeInfoDto.getEmployeeInfo().getEmployeeName());
         jobHistory.setJobHistoryDetails(employeeInfoDto.getJobHistoryDetails());
         JobHistory results = jobHistoryService.createJobHistoryInfo(jobHistory);
+
+        // day off
+        DayOff dayOff = new DayOff();
+        dayOff.setEmployeeId(employeeid);
+        DayOff dayOffDetails = dayOffService.createDayOff(dayOff);
 
         return employeeid;
 
