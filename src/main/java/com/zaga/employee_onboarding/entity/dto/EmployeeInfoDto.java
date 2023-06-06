@@ -2,6 +2,7 @@ package com.zaga.employee_onboarding.entity.dto;
 
 import java.util.List;
 
+import com.zaga.employee_onboarding.entity.DayOff;
 import com.zaga.employee_onboarding.entity.EducationDetails;
 import com.zaga.employee_onboarding.entity.EmployeeInfo;
 import com.zaga.employee_onboarding.entity.JobHistory;
@@ -33,6 +34,8 @@ public class EmployeeInfoDto {
 
     // skill
      public Skills skills;
+
+     public DayOff dayOff;
 
     // training
 

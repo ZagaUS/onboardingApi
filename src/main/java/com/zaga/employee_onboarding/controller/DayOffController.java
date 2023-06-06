@@ -23,8 +23,8 @@ public class DayOffController {
     
     @PostMapping("/createDayOff")
     public ResponseEntity<DayOff> createDayOff(@RequestBody DayOff dayOff) {
-        DayOff createDayOff = dayOffService.createDayOff(dayOff);
-        return ResponseEntity.ok(createDayOff);
+        DayOff dayOff2 = dayOffService.createDayOff(dayOff);
+        return ResponseEntity.ok(dayOff2);
     }
 
     @GetMapping("/getAllDayOff")

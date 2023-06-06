@@ -11,15 +11,15 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIgnoreProperties("{id}")
+@JsonIgnoreProperties({"id"})
 @Document(collection = "document")
 public class DocumentCollection {
 
     public String employeeId;
     public String employeeName;
     public String fileName;
-    public String fileType;
-    public Long fileSize;
+    // public String fileType;
+    // public Long fileSize;
     public byte[] file;
 
 }

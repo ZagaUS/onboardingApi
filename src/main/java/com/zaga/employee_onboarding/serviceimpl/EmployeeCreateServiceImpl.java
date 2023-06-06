@@ -3,6 +3,7 @@ package com.zaga.employee_onboarding.serviceimpl;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.stereotype.Service;
 import org.springframework.stereotype.Service;
 
 import com.zaga.employee_onboarding.entity.DayOff;
@@ -88,10 +89,9 @@ public class EmployeeCreateServiceImpl {
         jobHistory.setJobHistoryDetails(employeeInfoDto.getJobHistoryDetails());
         JobHistory results = jobHistoryService.createJobHistoryInfo(jobHistory);
 
-        // day off
-        DayOff dayOff = new DayOff();
+        DayOff dayOff = employeeInfoDto.getDayOff();
         dayOff.setEmployeeId(employeeid);
-        DayOff dayOffDetails = dayOffService.createDayOff(dayOff);
+        DayOff dayOff2 = dayOffService.createDayOff(dayOff);
 
         return employeeid;
 

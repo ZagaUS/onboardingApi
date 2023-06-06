@@ -31,9 +31,9 @@ public class DocumentCollectionController {
 
     @PostMapping(path = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<DocumentCollection> uploadPDF(@RequestPart("file") MultipartFile file, @RequestPart("metadata") String metadataJson) throws IOException {
-        if (file.getSize() > 10 * 1024 * 1024) {
-            return ResponseEntity.badRequest().body(null);
-        }
+        // if (file.getSize() > 10 * 1024 * 1024) {
+        //     return ResponseEntity.badRequest().body(null);
+        // }
 
         try {
             ObjectMapper objectMapper = new ObjectMapper();
@@ -42,8 +42,8 @@ public class DocumentCollectionController {
             DocumentCollection pdf = new DocumentCollection();
             pdf.setFileName(file.getOriginalFilename());
             pdf.setFile(file.getBytes());
-            pdf.setFileType(file.getContentType());
-            pdf.setFileSize(file.getSize());
+            // pdf.setFileType(file.getContentType());
+            // pdf.setFileSize(file.getSize());
             pdf.setEmployeeId(metadata.getEmployeeId());
             pdf.setEmployeeName(metadata.getEmployeeName());
             DocumentCollection savedPDF = repo.save(pdf);

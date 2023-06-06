@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIgnoreProperties ("{employeeId,employeeName}")
+// @JsonIgnoreProperties ({"employeeId","employeeName"})
 @Document(collection = "PersonalInfo")
 public class PersonalInfo {
 
