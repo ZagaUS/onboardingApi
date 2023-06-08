@@ -45,7 +45,7 @@ public class PersonalInfoApiTest {
         result = RestAssured.given()
                 .baseUri("http://localhost")
                 .port(port).contentType(ContentType.JSON).accept(ContentType.JSON).body(pi).when()
-                .post("/addPersonalInfo")
+                .post("/zaga/employeeOnboarding/addPersonalInfo")
                 .then()
                 .statusCode(200).extract().as(PersonalInfo.class);
 
@@ -62,7 +62,7 @@ public class PersonalInfoApiTest {
                 .contentType(ContentType.JSON)
                 .queryParam("employeeId", result.employeeId)
                 .when()
-                .get("/getPersonalInfoById")
+                .get("/zaga/employeeOnboarding/getPersonalInfoById")
                 .then()
                 .statusCode(200);
     }
@@ -73,7 +73,7 @@ public class PersonalInfoApiTest {
         PersonalInfo updatePI = PersonalInfo.builder().employeeId("1").employeeName("Suren").emergencyPhone("6380057418").build();
         RestAssured.given().baseUri("http://localhost").port(port).contentType(ContentType.JSON)
         .accept(ContentType.JSON).body(updatePI)
-        .when().put("/updatePersonalInfo")
+        .when().put("/zaga/employeeOnboarding/updatePersonalInfo")
         .then().statusCode(200);
 }
 }

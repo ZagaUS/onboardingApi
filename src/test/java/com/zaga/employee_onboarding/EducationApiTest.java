@@ -48,7 +48,7 @@ public class EducationApiTest {
 
                 responsebody = RestAssured.given().baseUri("http://localhost").port(port).contentType(ContentType.JSON)
                                 .accept(ContentType.JSON).body(payload)
-                                .when().post("/educationDetails/create")
+                                .when().post("/zaga/employeeOnboarding/educationDetails/create")
                                 .then().statusCode(200).extract().as(EducationDetails.class);
                 System.out.println(responsebody);
 
@@ -60,7 +60,7 @@ public class EducationApiTest {
                 RestAssured.given().baseUri("http://localhost").port(port).contentType(ContentType.JSON)
                                 .accept(ContentType.JSON)
                                 .queryParam("employeeId", responsebody.employeeId).accept(ContentType.JSON)
-                                .when().get("/getEducationDetailsById")
+                                .when().get("/zaga/employeeOnboarding/getEducationDetailsById")
                                 .then().statusCode(200);
         }
 
@@ -79,7 +79,7 @@ public class EducationApiTest {
 
                 RestAssured.given().baseUri("http://localhost").port(port).contentType(ContentType.JSON)
                                 .accept(ContentType.JSON).body(updatePayload)
-                                .when().put("/updateEducationDetails")
+                                .when().put("/zaga/employeeOnboarding/updateEducationDetails")
                                 .then().statusCode(200);
 
         }
