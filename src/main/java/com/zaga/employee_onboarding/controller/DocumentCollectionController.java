@@ -54,7 +54,7 @@ public class DocumentCollectionController {
         }
     }
 
-    @GetMapping("/pdf/{employeeId}")
+    @GetMapping(path = "/pdf/{employeeId}", produces = MediaType.ALL_VALUE)
     public ResponseEntity<String> downloadPDF(@PathVariable String employeeId) {
         System.out.println("employeeId: " + employeeId);
 
@@ -74,5 +74,7 @@ public class DocumentCollectionController {
 
             return ResponseEntity.ok().body(base64String);
     }
+
+    
     
 }
