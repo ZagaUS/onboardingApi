@@ -29,10 +29,11 @@ public class DocumentCollectionController {
     @Autowired
     DocumentCollectionRepo repo;
 
-    @PostMapping(path = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<DocumentCollection> uploadPDF(@RequestPart("file") MultipartFile file, @RequestPart("metadata") String metadataJson) throws IOException {
+    @PostMapping(path = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<DocumentCollection> uploadPDF(@RequestPart("file") MultipartFile file,
+            @RequestPart("metadata") String metadataJson) throws IOException {
         // if (file.getSize() > 10 * 1024 * 1024) {
-        //     return ResponseEntity.badRequest().body(null);
+        // return ResponseEntity.badRequest().body(null);
         // }
 
         try {
@@ -59,21 +60,22 @@ public class DocumentCollectionController {
         System.out.println("employeeId: " + employeeId);
 
         DocumentCollection pdf = repo.findByEmployeeId(employeeId, DocumentCollection.class);
-            if (pdf == null) {
-                return ResponseEntity.notFound().build();
-            }
-            if (pdf.getFile().length > 10 * 1024 * 1024) {
-                return ResponseEntity.badRequest().body("File size exceeds 10MB.");
-            }
+        if (pdf == null) {
+            return ResponseEntity.notFound().build();
+        }
+        if (pdf.getFile().length > 10 * 1024 * 1024) {
+            return ResponseEntity.badRequest().body("File size exceeds 10MB.");
+        }
 
-            String base64String = Base64.getEncoder().encodeToString(pdf.getFile());
+        String base64String = Base64.getEncoder().encodeToString(pdf.getFile());
 
-            // HttpHeaders headers = new HttpHeaders();
-            // headers.setContentType(MediaType.APPLICATION_PDF);
-            // headers.setContentDisposition(ContentDisposition.builder("inline").filename(pdf.getFileName()).build());
+        // HttpHeaders headers = new HttpHeaders();
+        // headers.setContentType(MediaType.APPLICATION_PDF);
+        // headers.setContentDisposition(ContentDisposition.builder("inline").filename(pdf.getFileName()).build());
 
-            return ResponseEntity.ok().body(base64String);
+        return ResponseEntity.ok().body(base64String);
     }
+
 
     
     

@@ -37,7 +37,7 @@ public class DayOffAPITest {
         dayOffTest=RestAssured.given()
                 .baseUri("http://localhost")
                 .port(port).contentType(ContentType.JSON).accept(ContentType.JSON).body(df).when()
-                .post("/createDayOff")
+                .post("/zaga/employeeOnboarding/createDayOff")
                 .then()
                 .statusCode(200).extract().as(DayOff.class);
         System.out.println(dayOffTest);
@@ -54,7 +54,7 @@ public class DayOffAPITest {
         .contentType(ContentType.JSON)
         .queryParam("employeeId", dayOffTest.employeeId)
         .when()
-        .get("/getDayOffById")
+        .get("/zaga/employeeOnboarding/getDayOffById")
         .then()
         .statusCode(200);
     }
@@ -65,7 +65,7 @@ public class DayOffAPITest {
         DayOff updateDF = DayOff.builder().employeeId("1").employeeName("pavi").allocatedLeave("15").build();
         RestAssured.given().baseUri("http://localhost").port(port).contentType(ContentType.JSON)
         .accept(ContentType.JSON).body(updateDF)
-        .when().put("/updateDayOff")
+        .when().put("/zaga/employeeOnboarding/updateDayOff")
         .then()
         .statusCode(200);
     }

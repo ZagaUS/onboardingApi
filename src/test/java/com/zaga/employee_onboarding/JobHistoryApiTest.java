@@ -43,33 +43,10 @@ import io.restassured.http.ContentType;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class JobHistoryApiTest {
 
-    // @Autowired
-    // MongodConfig mongodConfig;
-
     private JobHistory responsebody;
 
     @LocalServerPort
     int port;
-
-    // private MongodProcess mongoProcess;
-    // private MongodExecutable mongoExecutable;
-
-    // @BeforeAll
-    // public void setup() throws IOException {
-
-    // MongodStarter starter = MongodStarter.getDefaultInstance();
-
-    // mongoExecutable = starter.prepare(mongodConfig);
-
-    // mongoProcess = mongoExecutable.start();
-
-    // }
-
-    // @AfterAll
-    // public void cleanup() {
-    // mongoProcess.stop();
-    // mongoExecutable.stop();
-    // }
 
     @Test
     @Order(1)
@@ -85,7 +62,7 @@ public class JobHistoryApiTest {
         responsebody = RestAssured.given()
                 .baseUri("http://localhost")
                 .port(port).contentType(ContentType.JSON).accept(ContentType.JSON).body(payload).when()
-                .post("/jobHistory/create")
+                .post("/zaga/employeeOnboarding/jobHistory/create")
                 .then()
                 .statusCode(200).extract().as(JobHistory.class);
 
@@ -101,7 +78,7 @@ public class JobHistoryApiTest {
                 .contentType(ContentType.JSON)
                 .queryParam("employeeId", responsebody.employeeId)
                 .when()
-                .get("/getJobHistoryById")
+                .get("/zaga/employeeOnboarding/getJobHistoryById")
                 .then()
                 .statusCode(200);
     }

@@ -49,7 +49,7 @@ public class TrainingDetailsApiTest {
                 .baseUri("http://localhost")
                 .port(port)
                 .contentType(ContentType.JSON).accept(ContentType.JSON).body(payload).when()
-                .post("trainingDetails")
+                .post("/zaga/employeeOnboarding/trainingDetails")
                 .then()
                 .statusCode(200).extract().as(TrainingDetails.class);
 
@@ -66,7 +66,7 @@ public class TrainingDetailsApiTest {
         .contentType(ContentType.JSON)
         .queryParam("trainingId", responsebody.trainingId)
         .when()
-        .get("/getTrainingDetailsById")
+        .get("/zaga/employeeOnboarding/getTrainingDetailsById")
         .then()
         .statusCode(200);
         

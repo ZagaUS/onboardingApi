@@ -38,7 +38,7 @@ public class CertificationDetailsApiTest {
         responsebody = RestAssured.given()
                     .baseUri("http://localhost")
                     .port(port).contentType(ContentType.JSON).accept(ContentType.JSON).body(training).when()
-                .post("/certificationDetails")
+                .post("/zaga/employeeOnboarding/certificationDetails")
                 .then()
                 .statusCode(200).extract().as(CertificationDetails.class);
 
@@ -53,7 +53,7 @@ public class CertificationDetailsApiTest {
                 .contentType(ContentType.JSON)
                 .queryParam("employeeId", responsebody.employeeId)
                 .when()
-                .get("/getCertificationDetailsById")
+                .get("/zaga/employeeOnboarding/getCertificationDetailsById")
                 .then()
                 .statusCode(200);
     }
@@ -69,7 +69,7 @@ public class CertificationDetailsApiTest {
                 .accept(ContentType.JSON)
                 .body(updateTraining)
                 .when()
-                .put("/updateCertificationDetails")
+                .put("/zaga/employeeOnboarding/updateCertificationDetails")
                 .then();
                 // .statusCode(200);
     }
