@@ -15,10 +15,10 @@ public class WebConfig implements WebMvcConfigurer {
 		// return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/zaga/employeeOnboarding/**")
-            .allowedOrigins("http://localhost:8090")
+				registry.addMapping("/**")
+            .allowedOrigins("*")
             .allowedMethods("GET", "POST", "PUT", "DELETE")
-            .allowedHeaders("Authorization", "Content-Type", "X-Requested-With")
+            .allowedHeaders("Authorization", "Content-Type", "X-Requested-With", "Access-Control-Allow-Origin")
             .allowCredentials(false);
 			}
 		};
