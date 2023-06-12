@@ -13,18 +13,6 @@ public class EmployeeOnboardingApplication {
 		SpringApplication.run(EmployeeOnboardingApplication.class, args);
 	}
 
-	@Bean
-	public WebMvcConfigurer corsConfigurer() {
-		return new WebMvcConfigurer() {
-			@Override
-			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/zaga/employeeOnboarding**")
-            .allowedOrigins("http://localhost:8090")
-            .allowedMethods("GET", "POST", "PUT", "DELETE")
-            .allowedHeaders("Authorization", "Content-Type", "X-Requested-With")
-            .allowCredentials(false);
-			}
-		};
-	}
+	
 
 }
