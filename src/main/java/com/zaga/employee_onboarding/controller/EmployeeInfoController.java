@@ -24,7 +24,7 @@ import com.zaga.employee_onboarding.repository.EmployeeInfoRepo;
 import com.zaga.employee_onboarding.service.EmployeeInfoService;
 import com.zaga.employee_onboarding.service.SequenceGeneratorService;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+// @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class EmployeeInfoController {
     @Autowired

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.zaga.employee_onboarding.entity.Skills;
 import com.zaga.employee_onboarding.service.SkillsService;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+// @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class SkillsController {
     @Autowired

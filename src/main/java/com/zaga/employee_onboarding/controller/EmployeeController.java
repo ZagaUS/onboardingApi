@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.zaga.employee_onboarding.entity.dto.EmployeeInfoDto;
 import com.zaga.employee_onboarding.serviceimpl.EmployeeCreateServiceImpl;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+// @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class EmployeeController {
     

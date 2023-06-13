@@ -24,7 +24,7 @@ import com.zaga.employee_onboarding.entity.DocumentCollection;
 import com.zaga.employee_onboarding.entity.MetaData;
 import com.zaga.employee_onboarding.repository.DocumentCollectionRepo;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+// @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class DocumentCollectionController {
 

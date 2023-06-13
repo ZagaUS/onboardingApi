@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.zaga.employee_onboarding.entity.EducationDetails;
 import com.zaga.employee_onboarding.service.EducationDetailsService;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+// @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class EducationDetailController {
 

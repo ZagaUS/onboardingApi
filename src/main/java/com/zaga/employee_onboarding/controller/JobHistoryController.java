@@ -16,7 +16,7 @@ import com.zaga.employee_onboarding.entity.JobHistory;
 import com.zaga.employee_onboarding.repository.JobHistoryRepo;
 import com.zaga.employee_onboarding.service.JobHistoryService;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+// @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class JobHistoryController {
     @Autowired
