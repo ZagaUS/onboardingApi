@@ -1,5 +1,6 @@
 package com.zaga.employee_onboarding.entity;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;

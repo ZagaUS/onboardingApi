@@ -15,30 +15,12 @@ public class WebConfig implements WebMvcConfigurer {
 
     
 	@Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-            .allowedOrigins("*")
-            .allowedMethods("GET", "POST", "PUT", "DELETE")
-            .allowedHeaders("Access-Control-Allow-Origin", "Authorization", "Origin")
-            .allowCredentials(false);
-    }
+public void addCorsMappings(CorsRegistry registry) {
+    registry.addMapping("/**")
+        .allowedOrigins("*")
+        .allowedMethods("GET", "POST", "PUT", "DELETE")
+        .allowedHeaders("*")
+        .exposedHeaders("Access-Control-Allow-Origin")
+        .allowCredentials(false);
 }
-
-// @Configuration
-// public class WebConfig {
-//     @Bean
-//     public CorsWebFilter corsWebFilter() {
-//         CorsConfiguration corsConfig = new CorsConfiguration();
-//         corsConfig.addAllowedOrigin("*");
-//         corsConfig.addAllowedMethod("*");
-//         corsConfig.addAllowedHeader("*");
-//         // corsConfig.setMaxAge(3600);
-//         corsConfig.setAllowCredentials(false);
-
-//         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-//         source.registerCorsConfiguration("/**", corsConfig);
-
-//         return new CorsWebFilter(source);
-//     }
-// }
-
+}
