@@ -18,6 +18,7 @@ public class EducationDetailsServiceImpl implements EducationDetailsService {
     @Override
     public EducationDetails createEducationalInfo(EducationDetails dto) {
         EducationDetails info = repo.save(dto);
+        System.out.println("Created Educational Info");
         return info;
     }
 

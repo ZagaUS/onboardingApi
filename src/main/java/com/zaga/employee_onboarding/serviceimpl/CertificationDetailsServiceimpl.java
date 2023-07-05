@@ -18,6 +18,7 @@ public class CertificationDetailsServiceimpl implements CertificationDetailsServ
     @Override
     public CertificationDetails createCertificationDetails(CertificationDetails certificationDetails) {
         CertificationDetails details = certificationDetailsRepo.save(certificationDetails);
+        System.out.println("Created Certification Details");
         return details;
     }
 
