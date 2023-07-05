@@ -51,7 +51,7 @@ public class PersonalInfoControllerTest {
         anushiya.setNationality("Indian");
         anushiya.setMaritalStatus("single");
         // anushiya.setLanguage(["English","Tamil","Telugu"]);
-        anushiya.setDateOfBirth("1999-05-25");
+        // anushiya.setDateOfBirth("1999-05-25");
         anushiya.setBloodGroup("A1B +ve");
         anushiya.setPersonalEmail("anushiyadhamu@gmail.com");
         anushiya.setPersonalPhone("9500934741");
@@ -65,7 +65,7 @@ public class PersonalInfoControllerTest {
         pavithra.setNationality("Indian");
         pavithra.setMaritalStatus("single");
         // pavithra.setLanguage(["English","Tamil"]);
-        pavithra.setDateOfBirth("1995-05-20");
+        // pavithra.setDateOfBirth("1995-05-20");
         pavithra.setBloodGroup("o +");
         pavithra.setPersonalEmail("pavipavi491@gmail.com");
         pavithra.setPersonalPhone("9944822686");

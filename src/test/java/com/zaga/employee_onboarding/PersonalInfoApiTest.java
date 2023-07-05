@@ -41,7 +41,7 @@ public class PersonalInfoApiTest {
         list.add("English");
         list.add("Tamil");
         PersonalInfo pi = PersonalInfo.builder().employeeId("1").employeeName("Suren").gender("male").nationality("Indian")
-                .maritalStatus("single").language(list).dateOfBirth("1998-02-03").bloodGroup("A1+").personalEmail("surendar@gmail.com").personalPhone("7708521154").emergencyPhone("6385311793").address("617/5, Poornammal Colony, Kovilpatti").build();
+                .maritalStatus("single").language(list).bloodGroup("A1+").personalEmail("surendar@gmail.com").personalPhone("7708521154").emergencyPhone("6385311793").address("617/5, Poornammal Colony, Kovilpatti").build();
         result = RestAssured.given()
                 .baseUri("http://localhost")
                 .port(port).contentType(ContentType.JSON).accept(ContentType.JSON).body(pi).when()
